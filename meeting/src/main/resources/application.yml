@@ -1,0 +1,66 @@
+server:
+  port: 9000
+
+spring:
+  profiles:
+    active: dev
+  http:
+    encoding:
+      charset: UTF-8
+      force: true
+  servlet:
+    multipart:
+      max-request-size: 100MB
+      max-file-size: 100MB
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    read:
+      max-active: 20
+      initial-size: 1
+      min-idle: 3
+      max-wait: 60000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      poolPreparedStatements: true
+    write:
+      max-active: 20
+      initial-size: 1
+      min-idle: 3
+      max-wait: 60000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      poolPreparedStatements: true
+
+  application:
+    name: occamapi
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+#  thymeleaf:
+#    prefix: classpath:/templates/
+#    suffix: html
+
+es:
+  basePath: esmapper/
+
+pagehelper:
+  helperDialect: oracle
+  reasonable: false
+  supportMethodsArguments: true
+  params: count=countSql
+
+logging:
+  config: classpath:logback.xml
+  level:
+    com.whut.basiccentre.modules.dao: debug
+
+
+
+

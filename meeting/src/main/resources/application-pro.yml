@@ -1,0 +1,38 @@
+spring:
+    datasource:
+        write:
+            driver-class-name: oracle.jdbc.driver.OracleDriver
+            url: jdbc:oracle:thin:@218.197.100.133:1521:orcl
+            username: system
+            password: whut2021
+        read:
+            driver-class-name: oracle.jdbc.driver.OracleDriver
+            url: jdbc:oracle:thin:@218.197.100.133:1521:orcl
+            username: system
+            password: whut2021
+
+
+    redis:
+        host: localhost
+        port: 6379
+        password: adminasd
+        timeout: 1000
+        jedis:
+            pool:
+                max-idle: 5
+                min-idle: 0
+                max-active: 8
+                max-wait: -1
+
+#    data:
+#        elasticsearch:
+#            cluster-name: elasticsearch
+#            #cluster-nodes: 192.168.1.145:9300,192.168.1.147:9300,192.168.4.200:9300
+#            cluster-nodes: 192.168.1.147:9300
+#            repositories:
+#                enabled: true
+
+# 是否显示swagger接口文档
+show-api-doc: false
+project:
+    classpath: /opt/smart-univs-basiccentre/classes

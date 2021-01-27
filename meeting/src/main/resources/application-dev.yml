@@ -1,0 +1,31 @@
+spring:
+    datasource:
+        write:
+            driver-class-name: oracle.jdbc.driver.OracleDriver
+            url: jdbc:oracle:thin:@218.197.100.133:1521:orcl
+            username: system
+            password: whut2021
+        read:
+            driver-class-name: oracle.jdbc.driver.OracleDriver
+            url: jdbc:oracle:thin:@218.197.100.133:1521:orcl
+            username: system
+            password: whut2021
+
+    redis:
+        host: localhost
+        port: 6379
+        password: adminasd
+        timeout: 1000
+        jedis:
+            pool:
+                max-idle: 5
+                min-idle: 0
+                max-active: 8
+                max-wait: -1
+
+
+# 是否显示swagger接口文档
+show-api-doc: true
+project:
+    classpath: /opt/smart-univs-basiccentre/classes
+
