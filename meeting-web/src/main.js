@@ -1,8 +1,11 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 import "vant/lib/index.css";
-import Vuex from "vuex";
+
+import store from "./store";
+import router from "./router";
 
 createApp(App)
-  .use(Vuex)
+  .use(store)
+  .use(router)
   .mount("#app");
