@@ -1,10 +1,10 @@
 <template>
   <div class="top">
     <div class="month">
-      <div class="month-top">{{ now.get('month') + 1 }}</div>
+      <div class="month-top">{{ dayOfMonth }}</div>
       <div class="month-bottom">月</div>
     </div>
-    <div class="week" v-for="(item, index) in week" :key="item" :style="{ backgroundColor: index + 1 === dayOfWeek ? '#dbe4eb' : '#fcfcfc' }">
+    <div class="week" v-for="(item, index) in week" :key="item" :class="[index + 1 === dayOfWeek ? 'now-time' : 'other-time']">
       <div class="week-top">周{{ item }}</div>
       <div class="week-bottom">{{ getDate(index) }}</div>
     </div>
@@ -12,25 +12,69 @@
 </template>
 
 <script>
-import {reactive } from 'vue'
+import { reactive, toRefs } from 'vue'
 import dayjs from 'dayjs'
 export default {
   name: 'WeekTop',
   setup() {
+    const now = new dayjs()
     const data = reactive({
       week: ['一', '二', '三', '四', '五', '六', '日'],
-      now: new dayjs(),
       dayOfWeek: now.get('day'),
-      getDate = (index) => {
-        return now.add(index - dayOfWeek + 1, 'day').format('MM/DD')
-      }
+      dayOfMonth: now.get('month') + 1,
+      getDate: (index) => {
+        return now.add(index - data.dayOfWeek + 1, 'day').format('MM/DD')
+      },
     })
     return {
-      ...toRefs(data)
+      ...toRefs(data),
     }
   },
 }
 </script>
 
-<style lang="less">
+<style lang="less" scope>
+.top {
+  margin-top: 8px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  background-color: #fcfcfc;
+  color: #8795a5;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 600;
+  .month {
+    flex: 0.8;
+    display: flex;
+    flex-direction: column;
+    margin-left: 8px;
+    margin-right: 3px;
+    .month-bottom {
+      font-weight: 500;
+      margin-top: 7px;
+      font-size: 14px;
+    }
+  }
+  .week {
+    border-radius: 6px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-right: 8px;
+    .week-bottom {
+      font-weight: 550;
+      margin-top: 7px;
+      font-size: 8px;
+    }
+  }
+
+  .now-time {
+    background-color: #dbe4eb;
+  }
+
+  .other-time {
+    background-color: #fcfcfc;
+  }
+}
 </style>
