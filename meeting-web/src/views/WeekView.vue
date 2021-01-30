@@ -5,9 +5,9 @@
 </template>
 
 <script>
-import WeekLeft from '@/components/week/WeekLeft.vue';
-import WeekTop from '@/components/week/WeekTop.vue';
-import WeekRight from '@/components/week/WeekRight'
+import WeekLeft from '@/components/WeekView/WeekLeft.vue';
+import WeekTop from '@/components/WeekView/WeekTop.vue';
+import WeekRight from '@/components/WeekView/WeekRight'
 const schedule = [
   { startTime: '2021-01-25 07:00', endTime: '2021-01-25 09:00' },
   { startTime: '2021-01-27 07:50', endTime: '2021-01-27 09:40' },
