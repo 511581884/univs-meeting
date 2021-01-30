@@ -9,6 +9,14 @@ import router from "./router";
 import "./assets/fonts/index.css";
 import "./assets/styles/variables.css";
 
+/**
+ * 
+ * 
+ * 测试
+ * 测试
+ * 测试
+ */
+
 createApp(App)
   .use(store)
   .use(router)
