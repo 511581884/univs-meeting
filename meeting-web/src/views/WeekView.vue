@@ -1,13 +1,13 @@
 <template>
-  <week-top/>
-  <week-left/>
-  <week-right :schedule="schedule"/>
+  <week-top />
+  <week-left />
+  <week-right :schedule="schedule" />
 </template>
 
 <script>
-import WeekLeft from '@/components/WeekView/WeekLeft.vue';
-import WeekTop from '@/components/WeekView/WeekTop.vue';
-import WeekRight from '@/components/WeekView/WeekRight'
+import WeekLeft from '@/components/WeekView/WeekLeft.vue'
+import WeekTop from '@/components/WeekView/WeekTop.vue'
+import WeekRight from '@/components/WeekView/WeekRight.vue'
 const schedule = [
   { startTime: '2021-01-25 07:00', endTime: '2021-01-25 09:00' },
   { startTime: '2021-01-27 07:50', endTime: '2021-01-27 09:40' },
@@ -25,9 +25,8 @@ export default {
   components: { WeekTop, WeekLeft, WeekRight },
   setup() {
     return {
-      schedule
+      schedule,
     }
-    
-  }
+  },
 }
 </script>
