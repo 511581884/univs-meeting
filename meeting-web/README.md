@@ -30,5 +30,3 @@ TODOs:
   - ReassignmentView **T**
   - FeedbackView **J**
   - HistoryView **T**
-
-1.

@@ -1,0 +1,20 @@
+:root {
+  /* colors */
+  --colors-primary: #172a54;
+  --colors-secondary: #fac640;
+  --colors-text-medium: #888;
+  --colors-text-black: #222;
+  --colors-text-white: #fff;
+
+  /* font-families; */
+  --font-families-impact: "You She", impact;
+  --font-families-regular: "Fang Zheng", sans-serif;
+
+  /* font */
+  --font-heading-1: 24px var(--font-families-regular);
+  --font-heanding-2: 16px var(--font-families-regular);
+  --font-heanding-3: 14px var(--font-families-regular);
+  --font-heanding-4: bold 12px var(--font-families-regular);
+  --font-text-1: 12px var(--font-families-regular);
+  --font-text-2: 11px var(--font-families-regular);
+}
