@@ -2,7 +2,7 @@
   <div class="meeting-list">
     <div
       class="meeting-item"
-      v-for="meeting in filteredMeetings"
+      v-for="(meeting, index) in filteredMeetings"
       :key="meeting.id"
     >
       <meeting-time
@@ -13,6 +13,7 @@
         <h4 class="meeting-name">{{ meeting.name }}</h4>
         <h5 class="meeting-location">{{ meeting.location }}</h5>
       </div>
+      <separator v-if="index !== filteredMeetings.length - 1"></separator>
     </div>
   </div>
 </template>
@@ -22,10 +23,11 @@ import { computed } from "vue";
 import { useStore } from "vuex";
 import dayjs from "dayjs";
 
+import Separator from "../common/Separator";
 import MeetingTime from "./MeetingTime";
 
 export default {
-  components: { MeetingTime },
+  components: { MeetingTime, Separator },
   name: "MeetingList",
   props: ["selectedDate"],
   setup(props) {
@@ -59,10 +61,11 @@ export default {
   width: 100vw;
   height: 30vh;
   overflow: scroll;
+  padding-top: 5px;
 }
 
 .meeting-item {
-  margin: 10px 0;
+  margin: 5px 0;
 }
 
 .meeting-name {
