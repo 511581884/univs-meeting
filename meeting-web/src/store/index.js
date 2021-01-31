@@ -1,20 +1,22 @@
 import { createStore } from "vuex";
 
+import { getMeetings } from "../api/fakeMeetingService";
+
 const storeConfig = {
   state() {
     return {
-      counter: 0,
+      meetings: [],
     };
   },
   mutations: {
-    changeCounter(state, payload) {
-      state.counter += payload.value;
+    updateMeetings(state, meetings) {
+      state.meetings = meetings;
     },
   },
   actions: {
-    changeCounter(context) {
-      //May have some async operations here...
-      context.commit("changeCounter");
+    fetchMeetings: async ({ commit }) => {
+      const meetings = await getMeetings();
+      commit("updateMeetings", meetings);
     },
   },
   modules: {},
