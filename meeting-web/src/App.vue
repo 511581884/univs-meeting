@@ -1,11 +1,11 @@
 <template>
-  <hello-world></hello-world>
+  <router-view/>
+  <router-link to="/WeekView">周视图</router-link>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld";
 export default {
-  name: "App",
-  components: { HelloWorld },
-};
+  name: 'App',
+  
+}
 </script>

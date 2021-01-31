@@ -1,11 +1,11 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [
-  // {
-  //   path: "/",
-  //   name: "Home",
-  //   component: Home,
-  // },
+   {
+     path: "/WeekView",
+     name: "WeekView",
+     component: () => import('../views/WeekView.vue'),
+   },
 ];
 
 const router = createRouter({
