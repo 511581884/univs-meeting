@@ -28,10 +28,15 @@
     </van-cell-group>
     <div class="btns">
       <van-button class="join">参会</van-button>
-      <van-button class="leave">请假</van-button>
+      <van-button class="leave" @click="askForLeave">请假</van-button>
       <van-button class="reassign">代会</van-button>
     </div>
   </div>
+
+  <!--'请假'弹窗-->
+  <van-dialog confirmButtonColor="var(--colors-details-btn-blue)" v-model:show="isAskForLeave" title="请输入请假原因" show-cancel-button>
+    <van-field v-model="leaveReason" rows="3" autosize type="textarea" placeholder="在此输入请假原因..." />
+  </van-dialog>
 </template>
 
 <script>
@@ -42,12 +47,13 @@ const details = {
   host: '王世杰',
   begin_time: '2021-01-31 14:00',
   end_time: '2021-01-31 16:30',
-  room_name: '会议中心 103会议室',
+  room_name: 'XXXXX会议中心 103会议室',
   files: [{ name: '学习雷锋好榜样' }, { name: '辅导员表彰大会名单' }],
 }
 export default {
   name: 'DetailsView',
   setup() {
+    /* 会议时间信息的处理函数，传入 开始时间 和 结束时间  */
     const getTime = (bt, et) => {
       bt = new dayjs(bt)
       et = new dayjs(et)
@@ -58,20 +64,28 @@ export default {
       const _t = bt.format('YYYY年MM月DD日')
       return `${_t} ${dayOfWeek} ${_bt}~${_et}`
     }
-
+    /* “会议文件”的展开和关闭  */
     const isBrowseFiles = ref(false)
     const filesCellArrowDirection = ref('')
     const clickFilesCell = () => {
       isBrowseFiles.value = !isBrowseFiles.value
       filesCellArrowDirection.value = isBrowseFiles.value ? 'down' : ''
     }
-
+    /* 点击“请假” */
+    const isAskForLeave = ref(false)
+    const askForLeave = () => {
+      isAskForLeave.value = true
+    }
+    const leaveReason = ref('')
     return {
       details,
       getTime,
       isBrowseFiles,
       filesCellArrowDirection,
       clickFilesCell,
+      askForLeave,
+      isAskForLeave,
+      leaveReason,
     }
   },
 }
@@ -99,26 +113,25 @@ export default {
     }
   }
   .header-bottom {
-    text-align: center;
     padding-top: 30px;
     font-size: 14px;
+    position: relative;
+    left: 50px;
+    width: 300px;
     .van-icon {
       position: relative;
       top: 2px;
-      right: 3px;
+      margin-right: 5px;
     }
-    .location {
-      margin-top: 8px;
-      position: relative;
-      left: -54px;
+    .time {
+      margin-bottom: 5px;
     }
   }
 }
+/* 页面除了蓝色部分以外，下方的布局 */
 .body {
   font: var(--font-text-1);
-
   .btns {
-    //position: fixed;
     margin-top: 30px;
     button {
       height: 100px;
@@ -142,7 +155,7 @@ export default {
     }
   }
 }
-
+/* “会议文件”展开和关闭的动画效果 */
 .files-open-enter-active {
   animation: files 0.3s;
 }

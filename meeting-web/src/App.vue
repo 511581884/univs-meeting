@@ -1,10 +1,5 @@
 <template>
-<!--
-  <router-view/>
-  <router-link to="/WeekView">周视图</router-link>
--->
-<details-view/>
-
+<details-view />
 </template>
 
 <script>
