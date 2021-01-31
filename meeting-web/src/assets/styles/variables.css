@@ -11,6 +11,12 @@
   --colors-week-background-default: #fcfcfc;
   --colors-week-background-past: #999999;
 
+  /* colors for views of details */
+  --colors-details-btn-green: #07c160;
+  --colors-details-btn-red: #ee0a24;
+  --colors-details-btn-orange: #ff976a;
+  --colors-details-btn-blue: #0099FF;
+
   /* font-families; */
   --font-families-impact: "You She", impact;
   --font-families-regular: "Fang Zheng", sans-serif;
