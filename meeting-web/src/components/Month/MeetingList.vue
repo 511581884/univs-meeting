@@ -56,16 +56,19 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="less">
 .meeting-list {
-  width: 100vw;
   height: 30vh;
   overflow: scroll;
   padding-top: 5px;
+  width: 100vw;
 }
 
 .meeting-item {
   margin: 5px 0;
+  * {
+    cursor: pointer;
+  }
 }
 
 .meeting-name {

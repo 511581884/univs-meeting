@@ -25,7 +25,7 @@ export default {
 
 <style scoped>
 .calendar {
-  width: 100vw;
   height: 60vh;
+  width: 100vw;
 }
 </style>
