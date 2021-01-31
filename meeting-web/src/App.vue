@@ -1,6 +1,6 @@
 <template>
   <router-view />
-  <router-link to="/WeekView">周视图</router-link>
+  <!-- <router-link to="/WeekView">周视图</router-link> -->
 </template>
 
 <script>
@@ -13,8 +13,6 @@ export default {
   setup() {
     onMounted(() => {
       store.dispatch("fetchMeetings");
-
-      console.log("store.state: ", store.state);
     });
   },
 };

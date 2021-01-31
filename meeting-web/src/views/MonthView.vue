@@ -1,40 +1,32 @@
 <template>
   <div>
-    <calendar
-      class="calendar"
-      @confirm="handleSelect"
-      :show-confirm="false"
-      :poppable="false"
-    ></calendar>
-    <div></div>
+    <calendar @selectDate="handleDateSelect"></calendar>
+    <meeting-list :selectedDate="selectedDate"></meeting-list>
   </div>
 </template>
 
 <script>
 import { ref } from "vue";
-import { Calendar } from "vant";
+
+import Calendar from "../components/Month/Calendar";
+import MeetingList from "../components/Month/MeetingList";
 
 export default {
   name: "MonthView",
-  components: { Calendar },
+  components: { Calendar, MeetingList },
   setup() {
-    const date = ref("");
+    const selectedDate = ref();
 
-    const handleSelect = (selectedDate) => {
-      console.log("selectedDate: ", selectedDate);
+    const handleDateSelect = (date) => {
+      selectedDate.value = date;
     };
 
     return {
-      date,
-      handleSelect,
+      selectedDate,
+      handleDateSelect,
     };
   },
 };
 </script>
 
-<style scoped>
-.calendar {
-  width: 100vw;
-  height: 65vh;
-}
-</style>
+<style scoped></style>

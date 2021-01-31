@@ -1,7 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import MonthView from "../views/MonthView.vue";
-
 const routes = [
   {
     path: "/WeekView",
@@ -11,7 +9,7 @@ const routes = [
   {
     path: "/month",
     name: "Month",
-    component: MonthView,
+    component: () => import("../views/MonthView.vue"),
   },
   // {
   //   path: "/",
