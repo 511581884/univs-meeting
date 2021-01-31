@@ -2,7 +2,9 @@
   <div class="right" :style="heightStyle">
     <div v-for="i of 12" :key="i" class="split" />
     <div class="schedule">
-      <div v-for="(item, index) in schedule" :key="index" :style="getItemStyle(index)" class="schedule-item">shit{{ index }}</div>
+      <div v-for="(item, index) in schedule" :key="index" :style="getItemStyle(index)" class="schedule-item">
+        <span>{{ item.content }}</span>
+      </div>
     </div>
   </div>
 </template>
@@ -29,21 +31,21 @@ export default {
     const schedule = ref(props.schedule)
     const colorArrays = ['#85B8CF', '#90C652', '#D8AA5A', '#FC9F9D', '#61BC69', '#12AEF3', '#E29AAD', '#ca90f4']
     const widthOfItem = 1
-    const widthOfDay = 1.3
+    const widthOfDay = 1.26
     const heightOfHour = 1.25
     const left = 1.15
     const top = 2.05
-    const dayOfWeek = new dayjs().get('day')
+    let dayOfWeek = new dayjs().get('day')
+    if (dayOfWeek === 0) dayOfWeek = 7
     const getItemStyle = (index) => {
       const style = {}
       const item = schedule.value[index]
       const date1 = dayjs(item.startTime)
       const date2 = dayjs(item.endTime)
-      let day = date1.get('day')
-      if (day === 0) day = 7
+      let day = date1.get('day') === 0 ? 7 : date1.get('day')
 
-      style.color = '#fff'
-      if (day < dayOfWeek) style.backgroundColor = '#999999'
+      style.color = 'var(--colors-text-white)'
+      if (day < dayOfWeek) style.backgroundColor = 'var(--colors-week-background-past)'
       else style.backgroundColor = colorArrays[index % colorArrays.length]
 
       style.width = widthOfItem + 'rem'
@@ -89,6 +91,15 @@ export default {
     position: absolute;
     font-size: 10px;
     border-radius: 5px;
+    text-align: center;
+    /*
+    文字垂直居中，很丑
+    display: table;
+    span {
+      display: table-cell;
+      vertical-align: middle;
+    }
+    */
   }
 }
 </style>

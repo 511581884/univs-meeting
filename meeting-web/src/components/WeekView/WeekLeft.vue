@@ -41,7 +41,7 @@ export default {
   float: left;
   .left-item {
     flex: 1;
-    color: #8795a5;
+    color: var(--colors-text-medium);
     font-size: 14px;
   }
 }

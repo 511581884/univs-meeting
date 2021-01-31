@@ -20,12 +20,13 @@ export default {
     const now = new dayjs()
     const data = reactive({
       week: ['一', '二', '三', '四', '五', '六', '日'],
-      dayOfWeek: now.get('day'),
+      dayOfWeek: now.get('day') === 0 ? 7 : now.get('day'),
       dayOfMonth: now.get('month') + 1,
       getDate: (index) => {
         return now.add(index - data.dayOfWeek + 1, 'day').format('MM/DD')
       },
     })
+
     return {
       ...toRefs(data),
     }
@@ -35,15 +36,15 @@ export default {
 
 <style lang="less" scope>
 .top {
-  margin-top: 8px;
-  margin-bottom: 20px;
+  padding: 8px 0;
+  margin-bottom: 12px;
   display: flex;
   justify-content: center;
-  background-color: #fcfcfc;
-  color: #8795a5;
+  background-color: var(--colors-week-background-default);
+  color: var(--colors-text-medium);
   font-size: 14px;
-  text-align: center;
   font-weight: 600;
+  text-align: center;
   .month {
     flex: 0.8;
     display: flex;
@@ -70,11 +71,11 @@ export default {
   }
 
   .now-time {
-    background-color: #dbe4eb;
+    background-color:var(--colors-week-background-today);
   }
 
   .other-time {
-    background-color: #fcfcfc;
+    background-color: var(--colors-week-background-default);
   }
 }
 </style>

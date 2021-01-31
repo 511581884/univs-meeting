@@ -6,6 +6,11 @@
   --colors-text-black: #222;
   --colors-text-white: #fff;
 
+  /* background colors for views of week  */
+  --colors-week-background-today: #dbe4eb;
+  --colors-week-background-default: #fcfcfc;
+  --colors-week-background-past: #999999;
+
   /* font-families; */
   --font-families-impact: "You She", impact;
   --font-families-regular: "Fang Zheng", sans-serif;
