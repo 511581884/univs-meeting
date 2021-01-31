@@ -9,6 +9,7 @@
 
 <script>
 import { Calendar as VantCalendar } from "vant";
+
 export default {
   name: "Calendar",
   components: { VantCalendar },
@@ -16,6 +17,7 @@ export default {
     const onConfirm = (date) => {
       context.emit("selectDate", date);
     };
+
     return {
       onConfirm,
     };

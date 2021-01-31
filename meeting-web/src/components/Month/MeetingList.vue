@@ -32,6 +32,7 @@ export default {
   props: ["selectedDate"],
   setup(props) {
     const store = useStore();
+
     const selectedDate = computed(() => props.selectedDate);
     const meetings = computed(() => store.state.meetings);
 

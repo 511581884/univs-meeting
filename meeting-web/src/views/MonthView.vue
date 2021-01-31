@@ -8,8 +8,8 @@
 <script>
 import { ref } from "vue";
 
-import Calendar from "../components/Month/Calendar";
-import MeetingList from "../components/Month/MeetingList";
+import Calendar from "../components/month/Calendar";
+import MeetingList from "../components/month/MeetingList";
 
 export default {
   name: "MonthView",
