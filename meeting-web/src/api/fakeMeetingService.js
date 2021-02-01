@@ -79,6 +79,57 @@ const meetings = [
       },
     ],
   },
+  {
+    id: 4,
+    startDate: new Date(2021, 2, 2, 8),
+    endDate: new Date(2021, 2, 1, 10),
+    location: "西院会议室103",
+    name: "辅导员第二次会议",
+    attendees: [
+      {
+        id: 1,
+        name: "李四",
+        department: {
+          id: 1,
+          name: "教务办",
+        },
+      },
+    ],
+  },
+  {
+    id: 5,
+    startDate: new Date(2021, 2, 5, 13),
+    endDate: new Date(2021, 2, 5, 14),
+    location: "西院会议室103",
+    name: "辅导员第二次会议",
+    attendees: [
+      {
+        id: 1,
+        name: "李四",
+        department: {
+          id: 1,
+          name: "教务办",
+        },
+      },
+    ],
+  },
+  {
+    id: 5,
+    startDate: new Date(2021, 2, 6, 12),
+    endDate: new Date(2021, 2, 6, 15),
+    location: "西院会议室103",
+    name: "辅导员第二次会议",
+    attendees: [
+      {
+        id: 1,
+        name: "李四",
+        department: {
+          id: 1,
+          name: "教务办",
+        },
+      },
+    ],
+  },
 ];
 
 export const getMeetings = () =>

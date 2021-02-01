@@ -53,6 +53,8 @@ import {
   Button as VanButton,
   Dialog,
   Field as VanField,
+  //Collapse as VanCollapse,
+  //CollapseItem as VanCollapseItem
 } from "vant";
 export default {
   name: "HandlerArea",
