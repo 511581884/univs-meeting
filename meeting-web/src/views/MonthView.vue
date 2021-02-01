@@ -9,9 +9,9 @@
 <script>
 import { ref } from "vue";
 
-import Calendar from "../components/month/Calendar";
-import MeetingList from "../components/month/MeetingList";
-import ShadowSeparator from "../components/month/ShadowSeparator";
+import Calendar from "../components/Month/Calendar";
+import MeetingList from "../components/Month/MeetingList";
+import ShadowSeparator from "../components/Month/ShadowSeparator";
 
 export default {
   name: "MonthView",
