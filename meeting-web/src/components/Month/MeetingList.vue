@@ -5,16 +5,19 @@
       v-for="(meeting, index) in filteredMeetings"
       :key="meeting.id"
     >
-      <meeting-time
-        :startDate="meeting.startDate"
-        :endDate="meeting.endDate"
-      ></meeting-time>
-      <div class="container-left">
-        <h4 class="meeting-name">{{ meeting.name }}</h4>
-        <h5 class="meeting-location">{{ meeting.location }}</h5>
+      <div>
+        <meeting-time
+          :startDate="meeting.startDate"
+          :endDate="meeting.endDate"
+        ></meeting-time>
+        <div class="container-left">
+          <h4 class="meeting-name">{{ meeting.name }}</h4>
+          <h5 class="meeting-location">{{ meeting.location }}</h5>
+        </div>
+        <separator v-if="index !== filteredMeetings.length - 1"></separator>
       </div>
-      <separator v-if="index !== filteredMeetings.length - 1"></separator>
     </div>
+    <no-meeting v-if="isEmpty"></no-meeting>
   </div>
 </template>
 
@@ -25,9 +28,10 @@ import dayjs from "dayjs";
 
 import Separator from "../common/Separator";
 import MeetingTime from "./MeetingTime";
+import NoMeeting from "../month/NoMeeting.vue";
 
 export default {
-  components: { MeetingTime, Separator },
+  components: { MeetingTime, Separator, NoMeeting },
   name: "MeetingList",
   props: ["selectedDate"],
   setup(props) {
@@ -35,6 +39,7 @@ export default {
 
     const selectedDate = computed(() => props.selectedDate);
     const meetings = computed(() => store.state.meetings);
+    const isEmpty = computed(() => !filteredMeetings.value.length);
 
     const areSameDate = (date1, date2) => {
       return (
@@ -52,6 +57,7 @@ export default {
 
     return {
       filteredMeetings,
+      isEmpty,
     };
   },
 };
