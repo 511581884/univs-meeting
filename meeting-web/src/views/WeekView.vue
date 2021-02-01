@@ -5,9 +5,9 @@
 </template>
 
 <script>
-import WeekLeft from '@/components/Week/WeekLeft.vue'
-import WeekTop from '@/components/Week/WeekTop.vue'
-import WeekRight from '@/components/Week/WeekRight.vue'
+import WeekLeft from '@/components/week/WeekLeft.vue'
+import WeekTop from '@/components/week/WeekTop.vue'
+import WeekRight from '@/components/week/WeekRight.vue'
 import { computed } from 'vue'
 import { useStore } from 'vuex'
 export default {

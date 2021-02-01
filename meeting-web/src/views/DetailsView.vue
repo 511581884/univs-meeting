@@ -6,8 +6,8 @@
 <script>
 import { useStore } from "vuex";
 import { computed } from "vue";
-import HandlerArea from "@/components/Details/HandlerArea.vue";
-import MeetingInfo from "@/components/Details/MeetingInfo.vue";
+import HandlerArea from "@/components/details/HandlerArea.vue";
+import MeetingInfo from "@/components/details/MeetingInfo.vue";
 export default {
   name: "DetailsView",
   components: {
