@@ -8,26 +8,39 @@
 
 <script>
 export default {
-  name: 'WeekLeft',
+  name: "WeekLeft",
   props: {
     height: {
       type: String,
-      default: '15rem',
+      default: "15rem",
     },
   },
   setup(props) {
-    const time = ['07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00']
+    const time = [
+      "07:00",
+      "08:00",
+      "09:00",
+      "10:00",
+      "11:00",
+      "12:00",
+      "13:00",
+      "14:00",
+      "15:00",
+      "16:00",
+      "17:00",
+      "18:00",
+    ];
 
     const heightStyle = {
       height: props.height,
-    }
+    };
 
     return {
       time,
       heightStyle,
-    }
+    };
   },
-}
+};
 </script>
 
 <style lang="less" scoped>
@@ -41,7 +54,7 @@ export default {
   float: left;
   .left-item {
     flex: 1;
-    color: var(--colors-text-medium);
+    color: var(--colors-medium);
     font-size: 14px;
   }
 }

@@ -18,10 +18,21 @@
   <div class="body">
     <van-cell-group>
       <van-cell title="参会人员" is-link />
-      <van-cell title="会议文件" is-link @click="clickFilesCell" :arrow-direction="filesCellArrowDirection" />
+      <van-cell
+        title="会议文件"
+        is-link
+        @click="clickFilesCell"
+        :arrow-direction="filesCellArrowDirection"
+      />
       <transition name="files-open">
         <div v-if="isBrowseFiles" class="files">
-          <van-cell v-for="(item, index) in details.files" :key="index" :title="item.name" is-link icon="orders-o" />
+          <van-cell
+            v-for="(item, index) in details.files"
+            :key="index"
+            :title="item.name"
+            is-link
+            icon="orders-o"
+          />
         </div>
       </transition>
       <van-cell title="会后反馈" is-link />
@@ -34,49 +45,60 @@
   </div>
 
   <!--'请假'弹窗-->
-  <van-dialog confirmButtonColor="var(--colors-details-btn-blue)" v-model:show="isAskForLeave" title="请输入请假原因" show-cancel-button>
-    <van-field v-model="leaveReason" rows="3" autosize type="textarea" placeholder="在此输入请假原因..." />
+  <van-dialog
+    confirmButtonColor="var(--colors-details-btn-blue)"
+    v-model:show="isAskForLeave"
+    title="请输入请假原因"
+    show-cancel-button
+  >
+    <van-field
+      v-model="leaveReason"
+      rows="3"
+      autosize
+      type="textarea"
+      placeholder="在此输入请假原因..."
+    />
   </van-dialog>
 </template>
 
 <script>
-import { ref } from 'vue'
-import dayjs from 'dayjs'
+import { ref } from "vue";
+import dayjs from "dayjs";
 const details = {
-  subject: '优秀辅导员表彰大会',
-  host: '王世杰',
-  begin_time: '2021-01-31 14:00',
-  end_time: '2021-01-31 16:30',
-  room_name: 'XXXXX会议中心 103会议室',
-  files: [{ name: '学习雷锋好榜样' }, { name: '辅导员表彰大会名单' }],
-}
+  subject: "优秀辅导员表彰大会",
+  host: "王世杰",
+  begin_time: "2021-01-31 14:00",
+  end_time: "2021-01-31 16:30",
+  room_name: "XXXXX会议中心 103会议室",
+  files: [{ name: "学习雷锋好榜样" }, { name: "辅导员表彰大会名单" }],
+};
 export default {
-  name: 'DetailsView',
+  name: "DetailsView",
   setup() {
     /* 会议时间信息的处理函数，传入 开始时间 和 结束时间  */
     const getTime = (bt, et) => {
-      bt = new dayjs(bt)
-      et = new dayjs(et)
-      const week = ['日', '一', '二', '三', '四', '五', '六']
-      const dayOfWeek = '星期' + week[bt.get('day')]
-      const _bt = bt.format('HH:mm')
-      const _et = et.format('HH:mm')
-      const _t = bt.format('YYYY年MM月DD日')
-      return `${_t} ${dayOfWeek} ${_bt}~${_et}`
-    }
+      bt = new dayjs(bt);
+      et = new dayjs(et);
+      const week = ["日", "一", "二", "三", "四", "五", "六"];
+      const dayOfWeek = "星期" + week[bt.get("day")];
+      const _bt = bt.format("HH:mm");
+      const _et = et.format("HH:mm");
+      const _t = bt.format("YYYY年MM月DD日");
+      return `${_t} ${dayOfWeek} ${_bt}~${_et}`;
+    };
     /* “会议文件”的展开和关闭  */
-    const isBrowseFiles = ref(false)
-    const filesCellArrowDirection = ref('')
+    const isBrowseFiles = ref(false);
+    const filesCellArrowDirection = ref("");
     const clickFilesCell = () => {
-      isBrowseFiles.value = !isBrowseFiles.value
-      filesCellArrowDirection.value = isBrowseFiles.value ? 'down' : ''
-    }
+      isBrowseFiles.value = !isBrowseFiles.value;
+      filesCellArrowDirection.value = isBrowseFiles.value ? "down" : "";
+    };
     /* 点击“请假” */
-    const isAskForLeave = ref(false)
+    const isAskForLeave = ref(false);
     const askForLeave = () => {
-      isAskForLeave.value = true
-    }
-    const leaveReason = ref('')
+      isAskForLeave.value = true;
+    };
+    const leaveReason = ref("");
     return {
       details,
       getTime,
@@ -86,9 +108,9 @@ export default {
       askForLeave,
       isAskForLeave,
       leaveReason,
-    }
+    };
   },
-}
+};
 </script>
 
 <style lang="less" scoped>
@@ -98,7 +120,7 @@ export default {
   width: 100%;
   -moz-background-size: 100% 100%;
   background-size: 100% 100%;
-  color: var(--colors-text-white);
+  color: var(--colors-white);
   font: var(--font-text-1);
   .header-top {
     text-align: center;
@@ -139,7 +161,7 @@ export default {
       border-radius: 50%;
       margin: 0 12px;
       font-size: 18px;
-      color: var(--colors-text-white);
+      color: var(--colors-white);
     }
     .join {
       background-color: var(--colors-details-btn-green);

@@ -2,20 +2,27 @@
   /* colors */
   --colors-primary: #172a54;
   --colors-secondary: #fac640;
-  --colors-text-medium: #888;
-  --colors-text-black: #222;
-  --colors-text-white: #fff;
+  --colors-green: #07c160;
+  --colors-blue: #09f;
+  --colors-red: #ee0a24;
+  --colors-orange: #ff976a;
+  --colors-lightcyan: #dbe4eb;
+
+  /* white-grey-black colors. Mainly used for background color or font color. */
+  --colors-medium: #999;
+  --colors-black: #222;
+  --colors-white: #fcfcfc;
 
   /* background colors for views of week  */
-  --colors-week-background-today: #dbe4eb;
-  --colors-week-background-default: #fcfcfc;
-  --colors-week-background-past: #999999;
+  --colors-week-background-today: var(--colors-lightcyan);
+  --colors-week-background-default: var(--colors-white);
+  --colors-week-background-past: var(--colors-medium);
 
   /* colors for views of details */
-  --colors-details-btn-green: #07c160;
-  --colors-details-btn-red: #ee0a24;
-  --colors-details-btn-orange: #ff976a;
-  --colors-details-btn-blue: #0099FF;
+  --colors-details-btn-green: var(--colors-green);
+  --colors-details-btn-red: var(--colors-red);
+  --colors-details-btn-orange: var(var(--colors-orange));
+  --colors-details-btn-blue: var(--colors-blue);
 
   /* font-families; */
   --font-families-impact: "You She", impact;

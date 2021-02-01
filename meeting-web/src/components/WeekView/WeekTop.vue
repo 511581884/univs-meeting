@@ -4,7 +4,12 @@
       <div class="month-top">{{ dayOfMonth }}</div>
       <div class="month-bottom">月</div>
     </div>
-    <div class="week" v-for="(item, index) in week" :key="item" :class="[index + 1 === dayOfWeek ? 'now-time' : 'other-time']">
+    <div
+      class="week"
+      v-for="(item, index) in week"
+      :key="item"
+      :class="[index + 1 === dayOfWeek ? 'now-time' : 'other-time']"
+    >
       <div class="week-top">周{{ item }}</div>
       <div class="week-bottom">{{ getDate(index) }}</div>
     </div>
@@ -12,26 +17,26 @@
 </template>
 
 <script>
-import { reactive, toRefs } from 'vue'
-import dayjs from 'dayjs'
+import { reactive, toRefs } from "vue";
+import dayjs from "dayjs";
 export default {
-  name: 'WeekTop',
+  name: "WeekTop",
   setup() {
-    const now = new dayjs()
+    const now = new dayjs();
     const data = reactive({
-      week: ['一', '二', '三', '四', '五', '六', '日'],
-      dayOfWeek: now.get('day') === 0 ? 7 : now.get('day'),
-      dayOfMonth: now.get('month') + 1,
+      week: ["一", "二", "三", "四", "五", "六", "日"],
+      dayOfWeek: now.get("day") === 0 ? 7 : now.get("day"),
+      dayOfMonth: now.get("month") + 1,
       getDate: (index) => {
-        return now.add(index - data.dayOfWeek + 1, 'day').format('MM/DD')
+        return now.add(index - data.dayOfWeek + 1, "day").format("MM/DD");
       },
-    })
+    });
 
     return {
       ...toRefs(data),
-    }
+    };
   },
-}
+};
 </script>
 
 <style lang="less" scope>
@@ -41,7 +46,7 @@ export default {
   display: flex;
   justify-content: center;
   background-color: var(--colors-week-background-default);
-  color: var(--colors-text-medium);
+  color: var(--colors-medium);
   font-size: 14px;
   font-weight: 600;
   text-align: center;
@@ -71,7 +76,7 @@ export default {
   }
 
   .now-time {
-    background-color:var(--colors-week-background-today);
+    background-color: var(--colors-week-background-today);
   }
 
   .other-time {

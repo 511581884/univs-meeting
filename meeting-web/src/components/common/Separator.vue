@@ -10,7 +10,7 @@ export default {
 
 <style scoped>
 .separator {
-  background-color: var(--colors-text-medium);
+  background-color: var(--colors-medium);
   border-radius: 5px;
   cursor: auto;
   height: 1.5px;
