@@ -22,7 +22,7 @@
   /* colors for views of details */
   --colors-details-btn-green: var(--colors-green);
   --colors-details-btn-red: var(--colors-red);
-  --colors-details-btn-orange: var(var(--colors-orange));
+  --colors-details-btn-orange: var(--colors-orange);
   --colors-details-btn-blue: var(--colors-blue);
 
   /* font-families; */

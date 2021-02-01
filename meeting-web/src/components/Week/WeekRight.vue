@@ -2,15 +2,14 @@
   <div class="right" :style="heightStyle">
     <div v-for="i of 12" :key="i" class="split" />
     <div class="schedule">
-      <div v-for="(item, index) in schedule" :key="index" :style="getItemStyle(index)" class="schedule-item">
-        <span>{{ item.content }}</span>
+      <div v-for="(item, index) in schedule" :key="item.id" :style="getItemStyle(index)" class="schedule-item">
+        <span>{{ item.name }}</span>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { ref } from 'vue'
 import dayjs from 'dayjs'
 export default {
   name: 'WeekRight',
@@ -28,7 +27,9 @@ export default {
     const heightStyle = {
       height: props.height,
     }
-    const schedule = ref(props.schedule)
+
+    // eslint-disable-next-line vue/no-setup-props-destructure
+    const schedule = props.schedule
     const colorArrays = ['#85B8CF', '#90C652', '#D8AA5A', '#FC9F9D', '#61BC69', '#12AEF3', '#E29AAD', '#ca90f4']
     const widthOfItem = 1
     const widthOfDay = 1.26
@@ -39,12 +40,12 @@ export default {
     if (dayOfWeek === 0) dayOfWeek = 7
     const getItemStyle = (index) => {
       const style = {}
-      const item = schedule.value[index]
-      const date1 = dayjs(item.startTime)
-      const date2 = dayjs(item.endTime)
+      const item = schedule[index]
+      const date1 = dayjs(item.startDate)
+      const date2 = dayjs(item.endDate)
       let day = date1.get('day') === 0 ? 7 : date1.get('day')
 
-      style.color = 'var(--colors-text-white)'
+      style.color = 'var(--colors-white)'
       if (day < dayOfWeek) style.backgroundColor = 'var(--colors-week-background-past)'
       else style.backgroundColor = colorArrays[index % colorArrays.length]
 
@@ -89,7 +90,7 @@ export default {
   }
   .schedule-item {
     position: absolute;
-    font-size: 10px;
+    font-size: 11px;
     border-radius: 5px;
     text-align: center;
     /*
