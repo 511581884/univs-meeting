@@ -5,17 +5,17 @@
       v-for="(meeting, index) in filteredMeetings"
       :key="meeting.id"
     >
-      <div>
-        <meeting-time
-          :startDate="meeting.startDate"
-          :endDate="meeting.endDate"
-        ></meeting-time>
+      <div class="meeting-info">
         <div class="container-left">
           <h4 class="meeting-name">{{ meeting.name }}</h4>
           <h5 class="meeting-location">{{ meeting.location }}</h5>
         </div>
-        <separator v-if="index !== filteredMeetings.length - 1"></separator>
+        <meeting-time
+          :startDate="meeting.startDate"
+          :endDate="meeting.endDate"
+        ></meeting-time>
       </div>
+      <separator v-if="index !== filteredMeetings.length - 1"></separator>
     </div>
     <no-meeting v-if="isEmpty"></no-meeting>
   </div>
@@ -72,10 +72,12 @@ export default {
 }
 
 .meeting-item {
-  margin: 5px 0;
-  * {
-    cursor: pointer;
-  }
+  margin: 5px;
+}
+
+.meeting-info {
+  display: flex;
+  justify-content: space-between;
 }
 
 .meeting-name {
