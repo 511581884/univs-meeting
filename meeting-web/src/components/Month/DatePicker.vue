@@ -1,36 +1,38 @@
 <template>
-  <vant-popup v-model="visible">
+  <popup v-model:show="visible" position="bottom" round class="popup">
     <vant-datetime-picker
-      v-model="selected"
+      v-model="currentDate"
       type="date"
       title="选择日期"
+      @confirm="onConfirm"
       :min-date="minDate"
       :max-date="maxDate"
     ></vant-datetime-picker>
-  </vant-popup>
+  </popup>
 </template>
 
 <script>
-import { DatetimePicker as VantDatetimePicker, Popup as VantPopup } from "vant";
+import { DatetimePicker as VantDatetimePicker, Popup } from "vant";
 import { computed, ref } from "vue";
 
 export default {
+  components: { VantDatetimePicker, Popup },
   name: "DatePicker",
-  components: { VantDatetimePicker, VantPopup },
-  props: ["selectedDate", "show"],
-  setup(props) {
+  props: ["show"],
+  setup(props, context) {
     const today = new Date();
     const minDate = ref(new Date(today.getFullYear() - 2, 0, 1));
     const maxDate = ref(new Date(today.getFullYear() + 2, 0, 1));
-    const selectedDate = computed(() => props.selectedDate);
+
     const visible = computed(() => props.show);
 
-    console.log("selectedDate: ", selectedDate);
+    const onConfirm = (date) => context.emit("confirm", date);
 
     return {
+      currentDate: today,
       minDate,
       maxDate,
-      selected: selectedDate,
+      onConfirm,
       visible,
     };
   },

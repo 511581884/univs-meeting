@@ -1,9 +1,17 @@
 <template>
   <div class="container">
-    <calendar @selectDate="handleDateSelect"></calendar>
+    <calendar
+      :selectedDate="selectedDate"
+      @selectDate="handleDateSelect"
+      @clickTitle="handlePickerOpen"
+    ></calendar>
     <shadow-separator></shadow-separator>
     <meeting-list :selectedDate="selectedDate"></meeting-list>
-    <date-picker :show="pickerOpened" :selectdDate="selectedDate"></date-picker>
+    <date-picker
+      :show="pickerOpened"
+      :selectdDate="selectedDate"
+      @confirm="handlePickerConfirm"
+    ></date-picker>
   </div>
 </template>
 
@@ -20,15 +28,26 @@ export default {
   components: { Calendar, MeetingList, ShadowSeparator, DatePicker },
   setup() {
     const selectedDate = ref(new Date());
-    const pickerOpened = ref(true);
+    const pickerOpened = ref(false);
 
     const handleDateSelect = (date) => {
       selectedDate.value = date;
     };
 
+    const handlePickerOpen = () => {
+      pickerOpened.value = true;
+    };
+
+    const handlePickerConfirm = (date) => {
+      selectedDate.value = date;
+      pickerOpened.value = false;
+    };
+
     return {
       selectedDate,
       handleDateSelect,
+      handlePickerConfirm,
+      handlePickerOpen,
       pickerOpened,
     };
   },

@@ -1,6 +1,7 @@
 <template>
   <vant-calendar
     class="calendar"
+    ref="calendarRef"
     @confirm="onConfirm"
     :show-title="false"
     :show-confirm="false"
@@ -12,18 +13,37 @@
 </template>
 
 <script>
-import { computed, ref } from "vue";
+import { computed, onMounted, ref, watch } from "vue";
 import { useStore } from "vuex";
+import dayjs from "dayjs";
 
 import { Calendar as VantCalendar } from "vant";
 
 export default {
-  name: "Calendar",
   components: { VantCalendar },
-  setup(_, context) {
+  name: "Calendar",
+  props: ["selectedDate"],
+  setup(props, context) {
     const store = useStore();
     const datesHaveMeeting = computed(() => store.getters.datesHaveMeeting);
-    const minDate = ref(new Date(new Date().getFullYear() - 1, 0, 1));
+    const minDate = ref(
+      dayjs()
+        .subtract(3, "months")
+        .toDate()
+    );
+    const calendarRef = ref(null);
+    const selectedDate = computed(() => props.selectedDate);
+    watch(selectedDate, () => {
+      calendarRef.value.reset(selectedDate.value);
+    });
+
+    onMounted(() => {
+      document
+        .querySelector(".van-calendar__header-subtitle")
+        .addEventListener("click", () => {
+          context.emit("clickTitle");
+        });
+    });
 
     const onConfirm = (date) => {
       context.emit("selectDate", date);
@@ -57,6 +77,7 @@ export default {
     };
 
     return {
+      calendarRef,
       onConfirm,
       formatter,
       minDate,
@@ -73,6 +94,9 @@ export default {
 </style>
 
 <style>
+.van-calendar__header-subtitle {
+  cursor: pointer;
+}
 .van-calendar__bottom-info {
   color: var(--colors-orange);
   font-weight: 900;
