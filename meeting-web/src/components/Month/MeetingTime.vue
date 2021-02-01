@@ -39,7 +39,7 @@ export default {
 
 <style scoped>
 .container-right {
-  float: right;
+  /* float: right; */
 }
 .meeting-time {
   font: var(--font-heading-3);
