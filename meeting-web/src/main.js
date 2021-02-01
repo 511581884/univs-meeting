@@ -9,7 +9,7 @@ import router from "./router";
 import "./assets/fonts/index.css";
 import "./assets/styles/variables.css";
 
-import { Icon, Cell, CellGroup, Button, Dialog, Field  } from 'vant';
+import { Icon, Cell, CellGroup, Button, Dialog, Field, Tag  } from 'vant';
 
 createApp(App)
   .use(Icon)
@@ -17,6 +17,7 @@ createApp(App)
   .use(CellGroup)
   .use(Button)
   .use(Field)
+  .use(Tag)
   .use(Dialog)
   .use(store)
   .use(router)
