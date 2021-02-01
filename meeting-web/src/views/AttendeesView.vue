@@ -1,0 +1,59 @@
+<template>
+  <van-cell-group>
+    <van-cell v-for="(item, index) in attendees" :key="index">
+      <template #title>
+        <span class="custom-title">{{ item.name }}</span>
+      </template>
+      <template #label>
+        <span class="custom-title">{{ item.isGuest?'校外嘉宾':item.department.name }}</span>
+      </template>
+      <template #right-icon>
+        <van-icon name="phone-circle" @click="call(item.phone)" />
+      </template>
+    </van-cell>
+  </van-cell-group>
+</template>
+
+<script>
+import {
+  Icon as VanIcon,
+  Cell as VanCell,
+  CellGroup as VanCellGroup,
+} from "vant";
+import { useStore } from "vuex";
+import { computed } from "vue";
+export default {
+  name: "AttendeesView",
+  components: {
+    VanIcon,
+    VanCell,
+    VanCellGroup,
+  },
+  setup() {
+    const store = useStore();
+    const attendees = computed(() => {
+      return store.state.meetings[0].attendees;
+    });
+
+    const call = (phone) => {
+      window.location.href = `tel:${phone}`;
+    };
+    return {
+      attendees,
+      call,
+    };
+  },
+};
+</script>
+
+<style lang="less">
+.van-cell-group {
+  font: var(--font-text-1);
+  .van-cell {
+    .van-icon {
+      font-size: 40px;
+      right: 5px;
+    }
+  }
+}
+</style>

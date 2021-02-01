@@ -28,7 +28,7 @@ import dayjs from "dayjs";
 
 import Separator from "../common/Separator";
 import MeetingTime from "./MeetingTime";
-import NoMeeting from "../month/NoMeeting.vue";
+import NoMeeting from "../Month/NoMeeting";
 
 export default {
   components: { MeetingTime, Separator, NoMeeting },
