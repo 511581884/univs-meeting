@@ -61,7 +61,7 @@ export default {
   color: var(--colors-orange);
   font-weight: 900;
   font-size: 0.35rem;
-  transform: translateY(-6px) scaleX(95%);
+  transform: translateY(-1vh);
 }
 
 .van-calendar__selected-day {
