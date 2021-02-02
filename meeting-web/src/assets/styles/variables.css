@@ -37,4 +37,7 @@
   --font-heading-4: bold 12px var(--font-families-regular);
   --font-text-1: 12px var(--font-families-regular);
   --font-text-2: 11px var(--font-families-regular);
+
+  /* shadow separator */
+  --shadow-separator: 1.5px 1.5px 5px var(--colors-medium);
 }

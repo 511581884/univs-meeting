@@ -1,3 +1,4 @@
+/* eslint-disable vue/no-unused-components */
 <template>
   <View tabBar>
     <div class="container">
@@ -6,7 +7,7 @@
         @selectDate="handleDateSelect"
         @clickTitle="handlePickerOpen"
       ></calendar>
-      <shadow-separator></shadow-separator>
+      <!-- <shadow-separator></shadow-separator> -->
       <meeting-list :selectedDate="selectedDate"></meeting-list>
       <date-picker
         :show="pickerOpened"
@@ -23,12 +24,11 @@ import { ref } from "vue";
 import View from "../components/common/View";
 import Calendar from "../components/month/Calendar";
 import MeetingList from "../components/month/MeetingList";
-import ShadowSeparator from "../components/month/ShadowSeparator";
 import DatePicker from "../components/month/DatePicker";
 
 export default {
   name: "MonthView",
-  components: { Calendar, MeetingList, ShadowSeparator, DatePicker, View },
+  components: { Calendar, MeetingList, DatePicker, View },
   setup() {
     const selectedDate = ref(new Date());
     const pickerOpened = ref(false);

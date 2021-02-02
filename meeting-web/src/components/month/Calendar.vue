@@ -89,6 +89,7 @@ export default {
 .calendar {
   height: 60vh;
   width: 100vw;
+  box-shadow: var(--shadow-separator);
 }
 </style>
 
