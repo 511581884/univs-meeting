@@ -1,19 +1,17 @@
 <template>
-  <nav-bar title="代会"></nav-bar>
-  <div>
-    <collegue-list></collegue-list>
-  </div>
+  <View navBar navBarTitle="代会">
+    <div>
+      <collegue-list></collegue-list>
+    </div>
+  </View>
 </template>
 
 <script>
-import NavBar from "../components/layout/NavBar";
+import View from "../components/common/View";
 import CollegueList from "../components/reassignment/CollegueList";
 
 export default {
   name: "ReassignmentView",
-  components: { CollegueList, NavBar },
-  setup() {},
+  components: { CollegueList, View },
 };
 </script>
-
-<style scoped></style>
