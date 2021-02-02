@@ -1,17 +1,21 @@
 <template>
-  <van-cell-group>
-    <van-cell v-for="(item, index) in attendees" :key="index">
-      <template #title>
-        <span class="custom-title">{{ item.name }}</span>
-      </template>
-      <template #label>
-        <span class="custom-title">{{ item.isGuest?'校外嘉宾':item.department.name }}</span>
-      </template>
-      <template #right-icon>
-        <van-icon name="phone-circle" @click="call(item.phone)" />
-      </template>
-    </van-cell>
-  </van-cell-group>
+  <View navBar navBarTitle="参会人员">
+    <van-cell-group>
+      <van-cell v-for="(item, index) in attendees" :key="index">
+        <template #title>
+          <span class="custom-title">{{ item.name }}</span>
+        </template>
+        <template #label>
+          <span class="custom-title">{{
+            item.isGuest ? "校外嘉宾" : item.department.name
+          }}</span>
+        </template>
+        <template #right-icon>
+          <van-icon name="phone-circle" @click="call(item.phone)" />
+        </template>
+      </van-cell>
+    </van-cell-group>
+  </View>
 </template>
 
 <script>
@@ -20,6 +24,8 @@ import {
   Cell as VanCell,
   CellGroup as VanCellGroup,
 } from "vant";
+import View from "@/components/common/View.vue";
+
 import { useStore } from "vuex";
 import { computed } from "vue";
 export default {
@@ -28,6 +34,7 @@ export default {
     VanIcon,
     VanCell,
     VanCellGroup,
+    View,
   },
   setup() {
     const store = useStore();

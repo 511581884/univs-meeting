@@ -1,16 +1,16 @@
 <template>
   <div class="collegue-list">
-    <div v-for="collegue in collegues" :key="collegue.id">
+    <div v-for="(collegue, index) in collegues" :key="collegue.id">
       <div class="collegue-item">
         <div class="container-left">
           <h4 class="collegue-name">{{ collegue.name }}</h4>
           <h5 class="collegue-department">{{ collegue.department.name }}</h5>
         </div>
         <div class="container-right">
-          icon
+          <vant-icon name="comment-circle-o" />
         </div>
       </div>
-      <separator></separator>
+      <separator v-if="index !== collegues.length - 1"></separator>
     </div>
   </div>
 </template>
@@ -18,6 +18,7 @@
 <script>
 import { ref } from "vue";
 
+import { Icon as VantIcon } from "vant";
 import Separator from "../common/Separator";
 const c = [
   {
@@ -47,7 +48,7 @@ const c = [
 ];
 
 export default {
-  components: { Separator },
+  components: { Separator, VantIcon },
   name: "CollegueList",
   setup() {
     const collegues = ref(c);
@@ -67,6 +68,8 @@ export default {
 
 .container-right {
   margin-right: 20px;
+  display: flex;
+  align-items: center;
 }
 
 .collegue-name {

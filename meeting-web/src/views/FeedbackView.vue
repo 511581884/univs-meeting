@@ -1,29 +1,34 @@
 <template>
-  <div class="container">
-    <span>请输入反馈内容：</span>
-    <van-field
-      v-model="fbMsg"
-      rows="10"
-      autosize
-      type="textarea"
-      placeholder="反馈内容..."
-    />
-    <div class="btn">
-      <van-button plain type="success" block>提交反馈</van-button>
+  <View navBar navBarTitle="会议反馈">
+    <div class="container">
+      <span>请输入反馈内容：</span>
+      <van-field
+        v-model="fbMsg"
+        rows="10"
+        autosize
+        type="textarea"
+        placeholder="反馈内容..."
+      />
+      <div class="btn">
+        <van-button plain type="success" block>提交反馈</van-button>
+      </div>
     </div>
-  </div>
+  </View>
 </template>
 
 <script>
 import { ref } from "vue";
+
 import { Field as VanField, Button as VanButton } from "vant";
+import View from "@/components/common/View.vue";
+
 export default {
   name: "FeedbackView",
-  components: { VanField, VanButton },
+  components: { VanField, VanButton, View },
   setup() {
     const fbMsg = ref("");
     return {
-      fbMsg
+      fbMsg,
     };
   },
 };
