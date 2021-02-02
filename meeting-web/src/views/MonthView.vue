@@ -13,21 +13,21 @@
       @confirm="handlePickerConfirm"
     ></date-picker>
   </div>
+  <tab-bar></tab-bar>
 </template>
 
 <script>
 import { ref } from "vue";
 
-
 import Calendar from "../components/month/Calendar";
 import MeetingList from "../components/month/MeetingList";
 import ShadowSeparator from "../components/month/ShadowSeparator";
 import DatePicker from "../components/month/DatePicker";
-
+import TabBar from "../components/layout/TabBar";
 
 export default {
   name: "MonthView",
-  components: { Calendar, MeetingList, ShadowSeparator, DatePicker },
+  components: { Calendar, MeetingList, ShadowSeparator, DatePicker, TabBar },
   setup() {
     const selectedDate = ref(new Date());
     const pickerOpened = ref(false);
