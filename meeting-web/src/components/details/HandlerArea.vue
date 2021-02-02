@@ -2,14 +2,8 @@
   <div class="body">
     <van-cell-group>
       <van-cell title="参会人员" is-link />
-      <van-cell
-        title="会议文件"
-        is-link
-        @click="clickFilesCell"
-        :arrow-direction="filesCellArrowDirection"
-      />
-      <transition name="files-open">
-        <div v-if="isBrowseFiles" class="files">
+      <van-collapse v-model="openUnit">
+        <van-collapse-item title="会议文件" name="files">
           <van-cell
             v-for="(item, index) in details.files"
             :key="index"
@@ -17,8 +11,8 @@
             is-link
             icon="orders-o"
           />
-        </div>
-      </transition>
+        </van-collapse-item>
+      </van-collapse>
       <van-cell title="会后反馈" is-link />
     </van-cell-group>
     <div class="btns">
@@ -46,23 +40,23 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref } from "vue";
 import {
   Cell as VanCell,
   CellGroup as VanCellGroup,
   Button as VanButton,
   Dialog,
   Field as VanField,
-  //Collapse as VanCollapse,
-  //CollapseItem as VanCollapseItem
+  Collapse as VanCollapse,
+  CollapseItem as VanCollapseItem,
 } from "vant";
 export default {
   name: "HandlerArea",
   props: {
     details: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
   components: {
     VanCell,
@@ -70,15 +64,12 @@ export default {
     VanButton,
     [Dialog.Component.name]: Dialog.Component,
     VanField,
+    VanCollapse,
+    VanCollapseItem,
   },
   setup() {
     /* “会议文件”的展开和关闭  */
-    const isBrowseFiles = ref(false);
-    const filesCellArrowDirection = ref("");
-    const clickFilesCell = () => {
-      isBrowseFiles.value = !isBrowseFiles.value;
-      filesCellArrowDirection.value = isBrowseFiles.value ? "down" : "";
-    };
+    const openUnit = ref(["file"]);
     /* 点击“请假” */
     const isAskForLeave = ref(false);
     const askForLeave = () => {
@@ -86,15 +77,12 @@ export default {
     };
     const leaveReason = ref("");
     return {
-      isBrowseFiles,
-      filesCellArrowDirection,
-      clickFilesCell,
       askForLeave,
       isAskForLeave,
       leaveReason,
-    }
-  }
-
+      openUnit,
+    };
+  },
 };
 </script>
 
@@ -124,21 +112,6 @@ export default {
       background-color: var(--colors-details-btn-orange);
       border: 1px solid var(--colors-details-btn-orange);
     }
-  }
-}
-/* “会议文件”展开和关闭的动画效果 */
-.files-open-enter-active {
-  animation: files 0.3s;
-}
-.files-open-leave-active {
-  animation: files 0.3s reverse;
-}
-@keyframes files {
-  from {
-    transform: scaleY(0.1);
-  }
-  to {
-    transform: scaleY(1);
   }
 }
 </style>
