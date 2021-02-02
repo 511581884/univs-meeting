@@ -5,16 +5,16 @@
       <h5 class="colleague-department">{{ colleague.department.name }}</h5>
     </div>
     <div class="container-right">
-      <vant-icon name="comment-circle-o" />
+      <send-request-button :colleagueId="colleague.id"></send-request-button>
     </div>
   </div>
 </template>
 
 <script>
-import { Icon as VantIcon } from "vant";
+import SendRequestButton from "./SendRequestButton";
 
 export default {
-  components: { VantIcon },
+  components: { SendRequestButton },
   name: "ColleagueItem",
   props: ["colleague"],
 };

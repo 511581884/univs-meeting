@@ -8,8 +8,9 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { onBeforeMount, ref } from "vue";
 
+import { getColleague } from "../../api/fakeMemberService";
 import Separator from "../common/Separator";
 import ColleagueItem from "./ColleagueItem";
 
@@ -18,6 +19,10 @@ export default {
   name: "ColleagueList",
   setup() {
     const colleagues = ref([]);
+
+    onBeforeMount(async () => {
+      colleagues.value = await getColleague("userId");
+    });
 
     return { colleagues };
   },
