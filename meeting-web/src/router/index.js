@@ -31,11 +31,15 @@ const routes = [
     name: "Reassignment",
     component: () => import("../views/ReassignmentView.vue"),
   },
-  // {
-  //   path: "/",
-  //   name: "Home",
-  //   component: Home,
-  // },
+  {
+    path: "/me",
+    name: "MyMeetings",
+    component: () => import("../views/MyMeetingsView.vue"),
+  },
+  {
+    path: "/",
+    redirect: "/week",
+  },
 ];
 
 const router = createRouter({
