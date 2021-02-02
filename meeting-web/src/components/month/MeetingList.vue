@@ -38,7 +38,7 @@ export default {
     const store = useStore();
 
     const selectedDate = computed(() => props.selectedDate);
-    const meetings = computed(() => store.state.meetings);
+    const meetings = computed(() => store.getters.getMeetings);
     const isEmpty = computed(() => !filteredMeetings.value.length);
 
     const areSameDate = (date1, date2) => {

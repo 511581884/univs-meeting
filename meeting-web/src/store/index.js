@@ -21,6 +21,9 @@ const storeConfig = {
     },
   },
   getters: {
+    getMeetings(state) {
+      return _.sortBy(state.meetings, (meeting) => meeting.startDate);
+    },
     datesHaveMeeting(state) {
       const dates = state.meetings.map(({ startDate }) => ({
         year: startDate.getFullYear(),
