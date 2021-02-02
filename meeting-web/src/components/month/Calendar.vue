@@ -31,6 +31,9 @@ export default {
         .subtract(3, "months")
         .toDate()
     );
+
+    // When clicking the header of the calendar, a date picker should popup.
+    // Adding event listener for header...
     const calendarRef = ref(null);
     const selectedDate = computed(() => props.selectedDate);
     watch(selectedDate, () => {
@@ -50,12 +53,8 @@ export default {
     };
 
     const isDateBeforeToday = (date) => {
-      const today = new Date();
-      return (
-        date.getFullYear() < today.getFullYear() ||
-        date.getMonth() < today.getMonth() ||
-        date.getDate() < today.getDate()
-      );
+      const today = dayjs();
+      return dayjs(date).isBefore(today, "date");
     };
 
     const formatter = (day) => {
