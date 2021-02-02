@@ -26,6 +26,11 @@ const routes = [
     name: "Feedback",
     component: () => import("../views/FeedbackView.vue"),
   },
+  {
+    path: "/reassignment",
+    name: "Reassignment",
+    component: () => import("../views/ReassignmentView.vue"),
+  },
   // {
   //   path: "/",
   //   name: "Home",

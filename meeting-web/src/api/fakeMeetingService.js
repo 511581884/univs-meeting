@@ -5,18 +5,18 @@ const meetings = [
     endDate: new Date(2021, 1, 2, 18),
     location: "西院会议室101",
     name: "辅导员第一次会议",
-    host: '王世杰',
+    host: "王世杰",
     attendees: [
       {
         id: 1,
         name: "李四",
-        phone: '5200000',
+        phone: "5200000",
         isGuest: 1,
       },
       {
         id: 2,
         name: "张三",
-        phone: '5200000',
+        phone: "5200000",
         isGuest: 0,
         department: {
           id: 2,
@@ -26,7 +26,7 @@ const meetings = [
       {
         id: 3,
         name: "王五",
-        phone: '5211111',
+        phone: "5211111",
         isGuest: 0,
         department: {
           id: 1,
@@ -34,16 +34,16 @@ const meetings = [
         },
       },
     ],
-    files:[
+    files: [
       {
         id: 1,
-        name: "表彰大会名单XXX"
+        name: "表彰大会名单XXX",
       },
       {
         id: 2,
-        name: "会议重要红头文件"
-      }
-    ]
+        name: "会议重要红头文件",
+      },
+    ],
   },
   {
     id: 3,
