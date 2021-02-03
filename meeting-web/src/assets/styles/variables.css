@@ -39,5 +39,5 @@
   --font-text-2: 11px var(--font-families-regular);
 
   /* shadow separator */
-  --shadow-separator: 1.5px 1.5px 5px var(--colors-medium);
+  --shadow-separator: 2px 2px 5px 1px var(--colors-medium);
 }

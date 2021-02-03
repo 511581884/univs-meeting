@@ -6,12 +6,10 @@
     />
     <div class="container-middle">
       <h4 class="profile-name">
-        <span class="text-previous">李四</span
-        ><span class="text-following">老师</span>
+        <span class="text-previous">李四</span><span>老师</span>
       </h4>
       <p class="profile-department">
-        <span class="text-previous">所属部门:</span
-        ><span class="text-following">教务处</span>
+        <span class="text-previous">所属部门:</span><span>教务处</span>
       </p>
     </div>
   </div>
@@ -48,7 +46,9 @@ export default {
   padding: 20px 0;
   display: flex;
   align-items: center;
-  box-shadow: var(--shadow-separator);
+  margin-bottom: 3px;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
 }
 .profile-name {
   font: var(--font-heading-2);
@@ -56,15 +56,11 @@ export default {
 }
 .profile-department {
   margin: 5px 0;
-  font: var(--font-text-1);
+  font: var(--font-heading-3);
   color: var(--colors-medium);
 }
 
 .text-previous {
-  display: inline-block;
-  width: 60px;
-}
-
-.text-following {
+  margin-right: 10px;
 }
 </style>

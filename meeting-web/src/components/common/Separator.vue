@@ -1,10 +1,16 @@
 <template>
-  <div class="separator"></div>
+  <div class="separator" :style="{ width: `${widthPercent}%` }"></div>
 </template>
 
 <script>
 export default {
   name: "Separator",
+  props: {
+    widthPercent: {
+      type: Number,
+      default: 90,
+    },
+  },
 };
 </script>
 
@@ -16,6 +22,6 @@ export default {
   height: 1.5px;
   margin: 5px auto;
   opacity: 0.4;
-  width: 90%;
+  /* width: 90%; */
 }
 </style>
