@@ -1,37 +1,59 @@
 <template>
   <vant-step class="notification-item" :class="styleObject">
-    <p class="notification-content">【到会提醒】学校优秀辅导员座谈会</p>
-    <p class="notification-content">{{ "  今天 12:40 西院会议室101" }}</p>
+    <p class="notification-content">
+      {{ `【${label} ${notification.meetingName}】` }}
+    </p>
+    <p class="notification-content" v-if="!isReassignment">
+      {{ "  今天 12:40 西院会议室101" }}
+    </p>
   </vant-step>
 </template>
 
 <script>
 import { computed, ref } from "vue";
+// import dayjs from "dayjs";
 
 import { Step as VantStep } from "vant";
+
+const OPTIONS = {
+  cancel: {
+    class: "notification-circle-cancel",
+    label: "会议取消",
+  },
+  change: {
+    class: "notification-circle-change",
+    label: "会议变更",
+  },
+  reassign: {
+    class: "notification-circle-reassign",
+    label: "改派请求",
+  },
+  remind: {
+    class: "notification-circle-remind",
+    label: "会议提醒",
+  },
+};
 
 export default {
   name: "NotificationItem",
   components: { VantStep },
-  props: {
-    notificationType: {
-      type: String,
-      require: true,
-    },
-  },
+  props: ["notification"],
 
   setup(props) {
-    const notificationType = computed(() => props.notificationType);
-    const styles = {
-      "notification-circle-cancel": notificationType.value === "cancel",
-      "notification-circle-change": notificationType.value === "change",
-      "notification-circle-reassign": notificationType.value === "reassign",
-      "notification-circle-remind": notificationType.value === "remind",
-    };
-    const styleObject = ref(styles);
+    const type = computed(() => props.notification.type);
+
+    const isReassignment = computed(() => type.value === "reassign");
+    const className = ref(OPTIONS[type.value].class);
+    const label = ref(OPTIONS[type.value].label);
+
+    // const startDateString = computed(() => {
+    //   if (isReassignment.value) return null;
+    // });
 
     return {
-      styleObject,
+      className,
+      isReassignment,
+      label,
     };
   },
 };

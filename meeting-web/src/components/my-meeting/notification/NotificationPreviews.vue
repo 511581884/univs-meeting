@@ -3,18 +3,29 @@
     <div class="heading-container">
       <h3 class="heading">我的通知</h3>
     </div>
-    <notification-list></notification-list>
+    <notification-list :notifications="notifications"></notification-list>
   </div>
 </template>
 
 <script>
+import { computed } from "vue";
+import { useStore } from "vuex";
+
 import NotificationList from "./NotificationList";
 
 export default {
   components: { NotificationList },
   name: "NotificationPreviews",
   setup() {
-    return {};
+    const store = useStore();
+    console.log(store.getters.getTopThreeNotifications);
+    const notifications = computed(
+      () => store.state.notification.notifications
+    );
+
+    return {
+      notifications,
+    };
   },
 };
 </script>

@@ -1,8 +1,10 @@
 <template>
   <vant-steps direction="vertical" class="notification-list" :active="-1">
-    <notification-item notificationType="cancel"></notification-item>
-    <notification-item notificationType="remind"></notification-item>
-    <notification-item notificationType="change"></notification-item>
+    <notification-item
+      v-for="notification in notifications"
+      :key="notification.id"
+      :notification="notification"
+    ></notification-item>
   </vant-steps>
 </template>
 
@@ -13,9 +15,7 @@ import NotificationItem from "./NotificationItem";
 export default {
   name: "NotificationList",
   components: { NotificationItem, VantSteps },
-  setup() {
-    return {};
-  },
+  props: ["notifications"],
 };
 </script>
 

@@ -4,14 +4,16 @@
 
 <script>
 import { onMounted } from "vue";
-
-import store from "./store";
+import { useStore } from "vuex";
 
 export default {
   name: "App",
   setup() {
+    const store = useStore();
+
     onMounted(() => {
       store.dispatch("fetchMeetings");
+      store.dispatch("fetchNotifications");
     });
   },
 };

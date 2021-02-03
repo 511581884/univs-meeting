@@ -36,7 +36,7 @@ export const sendReassignmentRequest = (targetId, userId, meetingId) => {
     `Id of ${userId}} sent a reassignment request to id of ${targetId}. Asking him/her to attend the meeting with the id of ${meetingId}`
   );
 
-  new Promise(
+  return new Promise(
     (resolve) => {
       resolve("Request sent successfully!");
     },

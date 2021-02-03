@@ -46,7 +46,7 @@ const notifications = [
 ];
 
 export const getNotifications = () => {
-  new Promise((resolve) => {
+  return new Promise((resolve) => {
     resolve(notifications);
   });
 };
