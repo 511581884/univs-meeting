@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="heading-container">
-      <h3 class="heading">通知中心</h3>
+      <h3 class="heading">我的通知</h3>
     </div>
     <preview-list></preview-list>
   </div>
@@ -9,6 +9,7 @@
 
 <script>
 import PreviewList from "./PreviewList";
+
 export default {
   components: { PreviewList },
   name: "NotificationPreviews",
@@ -20,7 +21,8 @@ export default {
 
 <style scoped>
 .container {
-  height: max-content;
+  height: 35vh;
+
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
 }
@@ -28,8 +30,8 @@ export default {
 .heading-container {
   width: 100%;
   height: 5vh;
-  padding: 10px 0;
   /* background-color: red; */
+  padding: 5px;
   display: flex;
   align-items: center;
 }

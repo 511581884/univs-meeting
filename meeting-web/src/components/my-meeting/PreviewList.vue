@@ -21,6 +21,6 @@ export default {
 
 <style scoped>
 .previews-list {
-  padding-left: 50px;
+  padding-left: 40px;
 }
 </style>

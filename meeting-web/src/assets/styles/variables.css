@@ -2,16 +2,18 @@
   /* colors */
   --colors-primary: #172a54;
   --colors-secondary: #fac640;
-  --colors-green: #07c160;
-  --colors-blue: #09f;
-  --colors-red: #ee0a24;
-  --colors-orange: #f77744;
+  --colors-green: #59d983;
+  --colors-aqua: #59b9d9;
+  --colors-blue: #5977d9;
+  --colors-red: #d95959;
+  --colors-orange: #d9a159;
   --colors-lightcyan: #dbe4eb;
 
   /* white-grey-black colors. Mainly used for background color or font color. */
-  --colors-light: #e9e9e9;
+  --colors-light: #d9d9d9;
   --colors-medium: #999;
   --colors-black: #222;
+  --colors-dark: #444;
   --colors-white: #fcfcfc;
 
   /* background colors for views of week  */
