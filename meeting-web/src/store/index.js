@@ -1,6 +1,7 @@
 import { createStore } from "vuex";
 import _ from "lodash";
 
+import notificationModule from "./modules/notification";
 import { getMeetings } from "../api/fakeMeetingService";
 
 const storeConfig = {
@@ -35,7 +36,9 @@ const storeConfig = {
       return unique.map((date) => new Date(date.year, date.month, date.date));
     },
   },
-  modules: {},
+  modules: {
+    notification: notificationModule,
+  },
 };
 
 const store = createStore(storeConfig);
