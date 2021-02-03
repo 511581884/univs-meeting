@@ -10,7 +10,7 @@
 <script>
 import View from "../components/common/View";
 import Profile from "../components/my-meeting/Profile";
-import NotificationPreviews from "../components/my-meeting/NotificationPreviews";
+import NotificationPreviews from "../components/my-meeting/notification/NotificationPreviews";
 
 export default {
   components: { View, Profile, NotificationPreviews },
