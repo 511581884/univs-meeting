@@ -18,6 +18,7 @@ import { useStore } from "vuex";
 import dayjs from "dayjs";
 
 import { Calendar as VantCalendar } from "vant";
+import { isBeforeToday, areSameDate } from "@/helpers/dateTime.js";
 
 export default {
   components: { VantCalendar },
@@ -52,25 +53,13 @@ export default {
       context.emit("selectDate", date);
     };
 
-    const isDateBeforeToday = (date) => {
-      const today = dayjs();
-      return dayjs(date).isBefore(today, "date");
-    };
-
     const formatter = (day) => {
-      const calendarMonth = day.date.getMonth();
-      const calendarDate = day.date.getDate();
-
-      if (isDateBeforeToday(day.date)) {
+      if (isBeforeToday(day.date)) {
         day.className = "disable-date";
       }
 
       datesHaveMeeting.value.forEach((date) => {
-        if (
-          calendarMonth === date.getMonth() &&
-          calendarDate === date.getDate()
-        )
-          day.bottomInfo = "__";
+        if (areSameDate(date, day.date)) day.bottomInfo = "__";
       });
       return day;
     };

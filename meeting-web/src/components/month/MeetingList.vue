@@ -29,6 +29,7 @@ import dayjs from "dayjs";
 import Separator from "../common/Separator";
 import MeetingTime from "./MeetingTime";
 import NoMeeting from "../month/NoMeeting";
+import { areSameDate } from "@/helpers/dateTime";
 
 export default {
   components: { MeetingTime, Separator, NoMeeting },
@@ -40,14 +41,6 @@ export default {
     const selectedDate = computed(() => props.selectedDate);
     const meetings = computed(() => store.getters.getMeetings);
     const isEmpty = computed(() => !filteredMeetings.value.length);
-
-    const areSameDate = (date1, date2) => {
-      return (
-        date1.year() === date2.year() &&
-        date1.month() === date2.month() &&
-        date1.date() === date2.date()
-      );
-    };
 
     const filteredMeetings = computed(() => {
       return meetings.value.filter((meeting) => {
