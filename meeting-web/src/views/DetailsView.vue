@@ -8,23 +8,28 @@
 <script>
 import { useStore } from "vuex";
 import { computed } from "vue";
-
 import HandlerArea from "@/components/details/HandlerArea.vue";
 import MeetingInfo from "@/components/details/MeetingInfo.vue";
 import View from "@/components/common/View.vue";
 export default {
   name: "DetailsView",
+  props:["meetingId"],
   components: {
     MeetingInfo,
     HandlerArea,
     View,
   },
-  setup() {
+  setup(props) {
     const store = useStore();
     const details = computed(() => store.state.meetings[0]);
+
+    console.log(props.meetingId)
     return {
       details,
     };
   },
 };
 </script>
+
+<style scoped>
+</style>

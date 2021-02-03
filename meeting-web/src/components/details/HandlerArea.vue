@@ -1,7 +1,7 @@
 <template>
   <div class="body">
     <van-cell-group>
-      <van-cell title="参会人员" is-link />
+      <van-cell title="参会人员" is-link @click="goTo('Attendees')"/>
       <van-collapse v-model="openUnit">
         <van-collapse-item title="会议文件" name="files">
           <van-cell
@@ -13,12 +13,12 @@
           />
         </van-collapse-item>
       </van-collapse>
-      <van-cell title="会后反馈" is-link />
+      <van-cell title="会后反馈" is-link @click="goTo('Feedback')"/>
     </van-cell-group>
     <div class="btns">
       <van-button class="join">参会</van-button>
       <van-button class="leave" @click="askForLeave">请假</van-button>
-      <van-button class="reassign">代会</van-button>
+      <van-button class="reassign" @click="goTo('Reassignment')">代会</van-button>
     </div>
   </div>
 
@@ -41,6 +41,7 @@
 
 <script>
 import { ref } from "vue";
+import { useRouter } from 'vue-router'
 import {
   Cell as VanCell,
   CellGroup as VanCellGroup,
@@ -67,7 +68,7 @@ export default {
     VanCollapse,
     VanCollapseItem,
   },
-  setup() {
+  setup(props) {
     /* “会议文件”的展开和关闭  */
     const openUnit = ref(["file"]);
     /* 点击“请假” */
@@ -76,11 +77,24 @@ export default {
       isAskForLeave.value = true;
     };
     const leaveReason = ref("");
+    /* 路由跳转 */
+    const router = useRouter()
+    // eslint-disable-next-line vue/no-setup-props-destructure
+    const meetingId = props.details.id;
+    const goTo = (name) => {
+      router.push({
+        name,
+        params:{ meetingId }
+      })
+    }
+    // eslint-disable-next-line vue/no-setup-props-destructure
+    
     return {
       askForLeave,
       isAskForLeave,
       leaveReason,
       openUnit,
+      goTo
     };
   },
 };

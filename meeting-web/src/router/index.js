@@ -12,24 +12,28 @@ const routes = [
     component: () => import("../views/MonthView.vue"),
   },
   {
-    path: "/details",
+    path: "/details/:meetingId",
     name: "Details",
     component: () => import("../views/DetailsView.vue"),
+    props: true
   },
   {
-    path: "/attendees",
+    path: "/attendees/:meetingId",
     name: "Attendees",
     component: () => import("../views/AttendeesView.vue"),
+    props: true
   },
   {
-    path: "/feedback",
+    path: "/feedback/:meetingId",
     name: "Feedback",
     component: () => import("../views/FeedbackView.vue"),
+    props: true
   },
   {
-    path: "/reassignment",
+    path: "/reassignment/:meetingId",
     name: "Reassignment",
     component: () => import("../views/ReassignmentView.vue"),
+    props: true
   },
   {
     path: "/me",

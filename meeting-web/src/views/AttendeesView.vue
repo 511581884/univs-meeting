@@ -25,18 +25,18 @@ import {
   CellGroup as VanCellGroup,
 } from "vant";
 import View from "@/components/common/View.vue";
-
 import { useStore } from "vuex";
 import { computed } from "vue";
 export default {
   name: "AttendeesView",
+  props:["meetingId"],
   components: {
     VanIcon,
     VanCell,
     VanCellGroup,
     View,
   },
-  setup() {
+  setup(props) {
     const store = useStore();
     const attendees = computed(() => {
       return store.state.meetings[0].attendees;
@@ -45,6 +45,8 @@ export default {
     const call = (phone) => {
       window.location.href = `tel:${phone}`;
     };
+
+    console.log('meetingId:',props.meetingId)
     return {
       attendees,
       call,
@@ -53,7 +55,7 @@ export default {
 };
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .van-cell-group {
   font: var(--font-text-1);
   .van-cell {

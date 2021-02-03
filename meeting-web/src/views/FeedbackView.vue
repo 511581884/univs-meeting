@@ -18,15 +18,16 @@
 
 <script>
 import { ref } from "vue";
-
 import { Field as VanField, Button as VanButton } from "vant";
 import View from "@/components/common/View.vue";
-
 export default {
   name: "FeedbackView",
+  props:["meetingId"],
   components: { VanField, VanButton, View },
-  setup() {
+  setup(props) {
     const fbMsg = ref("");
+
+    console.log(props.meetingId)
     return {
       fbMsg,
     };
