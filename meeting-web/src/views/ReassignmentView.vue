@@ -12,6 +12,10 @@ import ColleagueList from "../components/reassignment/ColleagueList";
 
 export default {
   name: "ReassignmentView",
+  props:["meetingId"],
   components: { ColleagueList, View },
+  setup(props) {
+    console.log(props.meetingId)
+  }
 };
 </script>

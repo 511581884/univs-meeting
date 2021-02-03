@@ -2,7 +2,7 @@
   <div class="right" :style="heightStyle">
     <div v-for="i of 12" :key="i" class="split" />
     <div class="schedule">
-      <div v-for="(item, index) in schedule" :key="item.id" :style="getItemStyle(index)" class="schedule-item">
+      <div v-for="(item, index) in schedule" :key="item.id" :style="getItemStyle(index)" class="schedule-item" @click="goTo('Details',item.id)">
         <span>{{ item.name }}</span>
       </div>
     </div>
@@ -11,6 +11,7 @@
 
 <script>
 import dayjs from 'dayjs'
+import { useRouter } from 'vue-router'
 export default {
   name: 'WeekRight',
   props: {
@@ -64,11 +65,20 @@ export default {
       return style
     }
 
+    const router = useRouter()
+    const goTo = (name, meetingId) => {
+      router.push({
+        name,
+        params:{ meetingId }
+      })
+    }
+      
     return {
       heightStyle,
       // eslint-disable-next-line vue/no-dupe-keys
       schedule,
       getItemStyle,
+      goTo
     }
   },
 }
