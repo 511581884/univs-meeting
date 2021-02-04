@@ -40,7 +40,7 @@ export default {
   setup(props) {
     const type = computed(() => props.notification.type);
     const meetingName = computed(() => props.notification.meetingName);
-    const className = ref(`notification-circle-${type.value}`);
+    const className = ref(`notification-content-${type.value}`);
 
     const isReassignment = ref(type.value === "reassign");
     const isChange = ref(type.value === "change");
@@ -56,40 +56,37 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="less">
 .notification-content > p {
   margin: 2px 0;
   font: var(--font-heading-2);
 }
-</style>
-
-<style lang="less">
-.van-step__circle {
-  width: 5px;
-  height: 5px;
-}
-.notification-circle-cancel {
+.notification-content-cancel {
   color: var(--colors-red);
   & i {
     background-color: var(--colors-red);
   }
 }
-.notification-circle-change {
+.notification-content-change {
   color: var(--colors-blue);
   & i {
     background-color: var(--colors-blue);
   }
 }
-.notification-circle-reassign {
+.notification-content-reassign {
   color: var(--colors-orange);
   & i {
     background-color: var(--colors-orange);
   }
 }
-.notification-circle-remind {
+.notification-content-remind {
   color: var(--colors-green);
   & i {
     background-color: var(--colors-green);
   }
+}
+.van-step__circle {
+  width: 5px;
+  height: 5px;
 }
 </style>
