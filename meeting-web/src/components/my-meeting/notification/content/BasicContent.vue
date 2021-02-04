@@ -1,6 +1,7 @@
 <template>
   <p>
-    {{ `【${label}】 ${meetingName}` }}
+    <span class="previous-content">【{{ label }}】</span
+    ><span>{{ meetingName }}</span>
   </p>
 </template>
 
@@ -25,4 +26,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.previous-content {
+  margin-right: 4px;
+}
+</style>

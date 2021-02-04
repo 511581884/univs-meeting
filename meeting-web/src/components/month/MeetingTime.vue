@@ -35,9 +35,6 @@ export default {
 </script>
 
 <style scoped>
-.container-right {
-  /* float: right; */
-}
 .meeting-time {
   font: var(--font-heading-3);
   margin: 0px 15px;

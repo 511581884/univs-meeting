@@ -1,6 +1,6 @@
 <template>
   <p>
-    {{ `  ${dateTime} ${location}` }}
+    {{ `${dateTime} ${location}` }}
   </p>
 </template>
 

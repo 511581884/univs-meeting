@@ -1,6 +1,6 @@
 <template>
   <p>
-    {{ `  ${requester} 请求您代其出席会议` }}
+    {{ `${requester} 请求您代其出席会议` }}
   </p>
 </template>
 
