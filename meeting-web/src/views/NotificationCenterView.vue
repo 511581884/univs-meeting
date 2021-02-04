@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { computed } from "vue";
+import { computed, onUnmounted } from "vue";
 import { useStore } from "vuex";
 
 import View from "../components/common/View";
@@ -38,6 +38,10 @@ export default {
     const getDate = (dateString) => {
       return formatDate(new Date(dateString), false);
     };
+
+    onUnmounted(() => {
+      store.dispatch("makeAllRead");
+    });
 
     return {
       unconfirmed,

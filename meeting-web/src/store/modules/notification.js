@@ -11,6 +11,11 @@ const notificationModule = {
       state.notifications = notifications;
       state.length = notifications.length;
     },
+    makeAllRead(state) {
+      state.notifications.forEach((n) => {
+        n.hasRead = true;
+      });
+    },
   },
   actions: {
     fetchNotifications: async ({ commit }) => {
@@ -21,6 +26,10 @@ const notificationModule = {
         "desc"
       );
       commit("updateNotifications", sorted);
+    },
+
+    makeAllRead: ({ commit }) => {
+      commit("makeAllRead");
     },
   },
   getters: {
