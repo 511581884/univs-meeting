@@ -29,10 +29,11 @@ export const formatTime = (value) => {
 //date === today -> 今天
 //date === tomorrow -> 明天
 //date > tomorrow -> 具体日期
-export const formatDate = (date) => {
-  const timeString = `${formatTime(date.getHours())}:${formatTime(
-    date.getMinutes()
-  )}`;
+export const formatDate = (date, showTime = true) => {
+  const timeString = showTime
+    ? `${formatTime(date.getHours())}:${formatTime(date.getMinutes())}`
+    : "";
+
   if (isToday(date)) return `今天  ${timeString}`;
   if (isTomorrow(date)) return `明天  ${timeString}`;
   return `${date.getMonth() + 1}月${date.getDate()}日  ${timeString}`;

@@ -1,3 +1,5 @@
+import _ from "lodash";
+
 import { getNotifications } from "../../api/fakeNotificationService";
 
 const notificationModule = {
@@ -13,7 +15,12 @@ const notificationModule = {
   actions: {
     fetchNotifications: async ({ commit }) => {
       const notifications = await getNotifications();
-      commit("updateNotifications", notifications);
+      const sorted = _.orderBy(
+        notifications,
+        (notification) => notification.createDate,
+        "desc"
+      );
+      commit("updateNotifications", sorted);
     },
   },
   getters: {
@@ -22,6 +29,13 @@ const notificationModule = {
     },
     getUnreadAmount: (state) => {
       return state.notifications.filter((n) => !n.hasRead).length;
+    },
+    getCategorizedByDate: (state) => {
+      return _.groupBy(state.notifications, (n) => {
+        if (typeof n.hasConfirm === "boolean" && !n.hasConfirm)
+          return "unconfirmed";
+        return n.createDate.toDateString();
+      });
     },
   },
 };

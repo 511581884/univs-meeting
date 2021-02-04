@@ -4,7 +4,7 @@
       v-for="notification in notifications"
       :key="notification.id"
       :notification="notification"
-    ></notification-item>
+    />
   </vant-steps>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-  <p>
+  <p class="basic-content">
     <span class="previous-content">【{{ label }}】</span
     ><span>{{ meetingName }}</span>
   </p>
@@ -29,5 +29,6 @@ export default {
 <style scoped>
 .previous-content {
   margin-right: 4px;
+  font-weight: bolder;
 }
 </style>
