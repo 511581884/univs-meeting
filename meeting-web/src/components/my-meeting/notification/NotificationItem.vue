@@ -1,7 +1,7 @@
 <template>
   <vant-step class="notification-item" :class="className">
     <div class="notification-content">
-      <basic-content :type="type" :meetingName="meetingName"></basic-content>
+      <basic-content :type="type" :meetingName="meetingName" />
     </div>
     <div class="notification-content">
       <change-content
@@ -12,7 +12,7 @@
         v-else-if="isReassignment"
         :notification="notification"
       ></reassignment-content>
-      <regular-content v-else :notification="notification"></regular-content>
+      <regular-content v-else :notification="notification" />
     </div>
   </vant-step>
 </template>

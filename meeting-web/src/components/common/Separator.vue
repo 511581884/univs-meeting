@@ -1,5 +1,5 @@
 <template>
-  <div class="separator" :style="{ width: `${widthPercent}%` }"></div>
+  <div class="separator" :style="{ width: `${widthPercent}%` }" />
 </template>
 
 <script>

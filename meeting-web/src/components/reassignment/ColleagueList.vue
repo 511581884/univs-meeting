@@ -1,8 +1,8 @@
 <template>
   <div class="colleague-list">
     <div v-for="(colleague, index) in colleagues" :key="colleague.id">
-      <colleague-item :colleague="colleague"></colleague-item>
-      <separator v-if="index !== colleagues.length - 1"></separator>
+      <colleague-item :colleague="colleague" />
+      <separator v-if="index !== colleagues.length - 1" />
     </div>
   </div>
 </template>

@@ -8,7 +8,7 @@
       >月视图</vant-tabbar-item
     >
     <vant-tabbar-item replace to="/me" icon="user-o">
-      <badge :content="unreadNotificationAmount"></badge>
+      <badge :content="unreadNotificationAmount" />
       我的会议
     </vant-tabbar-item>
   </vant-tabbar>

@@ -1,7 +1,7 @@
 <template>
-  <nav-bar v-if="navBar" :title="navBarTitle"></nav-bar>
-  <slot></slot>
-  <tab-bar v-if="tabBar"></tab-bar>
+  <nav-bar v-if="navBar" :title="navBarTitle" />
+  <slot />
+  <tab-bar v-if="tabBar" />
 </template>
 
 <script>

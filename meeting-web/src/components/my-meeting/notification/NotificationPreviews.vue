@@ -3,7 +3,7 @@
     <div class="heading-container">
       <h3 class="heading">我的通知</h3>
     </div>
-    <notification-list :notifications="notifications"></notification-list>
+    <notification-list :notifications="notifications" />
   </div>
 </template>
 
