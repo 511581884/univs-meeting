@@ -7,7 +7,6 @@
         @selectDate="handleDateSelect"
         @clickTitle="handlePickerOpen"
       ></calendar>
-      <!-- <shadow-separator></shadow-separator> -->
       <meeting-list :selectedDate="selectedDate"></meeting-list>
       <date-picker
         :show="pickerOpened"

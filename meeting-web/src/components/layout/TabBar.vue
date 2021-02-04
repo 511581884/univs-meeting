@@ -7,20 +7,38 @@
     <vant-tabbar-item replace to="/month" icon="notes-o"
       >月视图</vant-tabbar-item
     >
-    <vant-tabbar-item replace to="/me" icon="user-o">我的会议</vant-tabbar-item>
+    <vant-tabbar-item replace to="/me" icon="user-o">
+      <badge :content="unreadNotificationAmount"></badge>
+      我的会议
+    </vant-tabbar-item>
   </vant-tabbar>
 </template>
 
 <script>
+import { computed } from "vue";
+import { useStore } from "vuex";
+
 import { Tabbar as VantTabbar, TabbarItem as VantTabbarItem } from "vant";
+import Badge from "../common/Badge.vue";
 
 export default {
   name: "TabBar",
-  components: { VantTabbar, VantTabbarItem },
+  components: { VantTabbar, VantTabbarItem, Badge },
   setup() {
-    return {};
+    const store = useStore();
+    const unreadNotificationAmount = computed(
+      () => store.getters.getUnreadAmount
+    );
+
+    return {
+      unreadNotificationAmount,
+    };
   },
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.badge {
+  background-color: red;
+}
+</style>
