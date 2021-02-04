@@ -5,7 +5,7 @@
       <h5 class="colleague-department">{{ colleague.department.name }}</h5>
     </div>
     <div class="container-right">
-      <send-request-button :colleagueId="colleague.id"></send-request-button>
+      <send-request-button :colleagueId="colleague.id" />
     </div>
   </div>
 </template>

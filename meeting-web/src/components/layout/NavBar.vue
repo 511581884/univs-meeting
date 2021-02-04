@@ -1,24 +1,24 @@
 // NabBar: 顶部返回栏
 <template>
-  <vant-nav-bar :title="title" left-arrow @click-left="onClickLeft"></vant-nav-bar>
+  <vant-nav-bar :title="title" left-arrow @click-left="onClickLeft" />
 </template>
 
 <script>
 import { NavBar as VantNavBar } from "vant";
-import { useRouter } from 'vue-router'
+import { useRouter } from "vue-router";
 export default {
   name: "NavBar",
   components: { VantNavBar },
   props: ["title"],
   setup() {
-    const router = useRouter()
+    const router = useRouter();
     const onClickLeft = () => {
-      router.back()
-    }
+      router.back();
+    };
     return {
-      onClickLeft
-    }
-  }
+      onClickLeft,
+    };
+  },
 };
 </script>
 

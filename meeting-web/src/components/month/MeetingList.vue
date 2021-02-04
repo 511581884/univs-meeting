@@ -15,9 +15,9 @@
           :endDate="meeting.endDate"
         ></meeting-time>
       </div>
-      <separator v-if="index !== filteredMeetings.length - 1"></separator>
+      <separator v-if="index !== filteredMeetings.length - 1" />
     </div>
-    <no-meeting v-if="isEmpty"></no-meeting>
+    <no-meeting v-if="isEmpty" />
   </div>
 </template>
 

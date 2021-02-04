@@ -1,7 +1,7 @@
 <template>
   <View navBar navBarTitle="代会">
     <div>
-      <colleague-list></colleague-list>
+      <colleague-list />
     </div>
   </View>
 </template>
@@ -12,10 +12,10 @@ import ColleagueList from "../components/reassignment/ColleagueList";
 
 export default {
   name: "ReassignmentView",
-  props:["meetingId"],
+  props: ["meetingId"],
   components: { ColleagueList, View },
   setup(props) {
-    console.log(props.meetingId)
-  }
+    console.log(props.meetingId);
+  },
 };
 </script>
