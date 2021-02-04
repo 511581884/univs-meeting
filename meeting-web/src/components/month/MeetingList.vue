@@ -5,7 +5,7 @@
       v-for="(meeting, index) in filteredMeetings"
       :key="meeting.id"
     >
-      <div class="meeting-info">
+      <div class="meeting-info" @click="handleClick(meeting.id)">
         <div class="container-left">
           <h4 class="meeting-name">{{ meeting.name }}</h4>
           <h5 class="meeting-location">{{ meeting.location }}</h5>
@@ -30,6 +30,7 @@ import Separator from "../common/Separator";
 import MeetingTime from "./MeetingTime";
 import NoMeeting from "../month/NoMeeting";
 import { areSameDate } from "@/helpers/dateTime";
+import { useRouter } from "vue-router";
 
 export default {
   components: { MeetingTime, Separator, NoMeeting },
@@ -37,11 +38,16 @@ export default {
   props: ["selectedDate"],
   setup(props) {
     const store = useStore();
+    const router = useRouter();
 
     const selectedDate = computed(() => props.selectedDate);
     const meetings = computed(() => store.getters.getMeetings);
     const isEmpty = computed(() => !filteredMeetings.value.length);
 
+    const handleClick = (meetingId) => {
+      console.log("meetingId: ", meetingId);
+      router.push(`/details/${meetingId}`);
+    };
     const filteredMeetings = computed(() => {
       return meetings.value.filter((meeting) => {
         return areSameDate(dayjs(meeting.startDate), dayjs(selectedDate.value));
@@ -50,6 +56,7 @@ export default {
 
     return {
       filteredMeetings,
+      handleClick,
       isEmpty,
     };
   },
