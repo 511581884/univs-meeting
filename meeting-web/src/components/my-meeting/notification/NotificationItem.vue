@@ -60,33 +60,42 @@ export default {
 .notification-content > p {
   margin: 2px 0;
   font: var(--font-heading-2);
+  color: var(--colors-primary);
 }
 .notification-content-cancel {
-  color: var(--colors-red);
+  & .basic-content > span:first-child {
+    color: var(--colors-red);
+  }
   & i {
     background-color: var(--colors-red);
   }
 }
 .notification-content-change {
-  color: var(--colors-blue);
+  & .basic-content > span:first-child {
+    color: var(--colors-blue);
+  }
   & i {
     background-color: var(--colors-blue);
   }
 }
 .notification-content-reassign {
-  color: var(--colors-orange);
+  & .basic-content > span:first-child {
+    color: var(--colors-orange);
+  }
   & i {
     background-color: var(--colors-orange);
   }
 }
 .notification-content-remind {
-  color: var(--colors-green);
+  & .basic-content > span:first-child {
+    color: var(--colors-purple);
+  }
   & i {
-    background-color: var(--colors-green);
+    background-color: var(--colors-purple);
   }
 }
 .van-step__circle {
-  width: 5px;
-  height: 5px;
+  width: 10px;
+  height: 10px;
 }
 </style>

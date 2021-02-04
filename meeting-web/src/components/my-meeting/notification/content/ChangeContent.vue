@@ -6,8 +6,10 @@
     </span>
   </p>
   <p>
-    <span class="previous-content">变更为</span
-    >{{ `${current.dateTime} ${current.location}` }}
+    <span class="previous-content">变更为</span>
+    <span class="following-content-current">
+      {{ `${current.dateTime} ${current.location}` }}
+    </span>
   </p>
 </template>
 
