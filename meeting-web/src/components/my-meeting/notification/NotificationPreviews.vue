@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="heading-container">
-      <h3 class="heading">我的通知</h3>
+      <linked-cell routeName="NotificationCenter" label="我的通知" />
     </div>
     <notification-list :notifications="notifications" />
   </div>
@@ -11,10 +11,11 @@
 import { computed } from "vue";
 import { useStore } from "vuex";
 
+import LinkedCell from "../../common/LinkedCell";
 import NotificationList from "./NotificationList";
 
 export default {
-  components: { NotificationList },
+  components: { NotificationList, LinkedCell },
   name: "NotificationPreviews",
   setup() {
     const store = useStore();
