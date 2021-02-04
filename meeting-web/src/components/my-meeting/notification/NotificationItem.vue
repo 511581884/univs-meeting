@@ -1,66 +1,63 @@
 <template>
-  <vant-step class="notification-item" :class="styleObject">
-    <p class="notification-content">
-      {{ `【${label} ${notification.meetingName}】` }}
-    </p>
-    <p class="notification-content" v-if="!isReassignment">
-      {{ "  今天 12:40 西院会议室101" }}
-    </p>
+  <vant-step class="notification-item" :class="className">
+    <div class="notification-content">
+      <basic-content :type="type" :meetingName="meetingName"></basic-content>
+    </div>
+    <div class="notification-content">
+      <change-content
+        v-if="isChange"
+        :notification="notification"
+      ></change-content>
+      <reassignment-content
+        v-else-if="isReassignment"
+        :notification="notification"
+      ></reassignment-content>
+      <regular-content v-else :notification="notification"></regular-content>
+    </div>
   </vant-step>
 </template>
 
 <script>
 import { computed, ref } from "vue";
-// import dayjs from "dayjs";
 
 import { Step as VantStep } from "vant";
-
-const OPTIONS = {
-  cancel: {
-    class: "notification-circle-cancel",
-    label: "会议取消",
-  },
-  change: {
-    class: "notification-circle-change",
-    label: "会议变更",
-  },
-  reassign: {
-    class: "notification-circle-reassign",
-    label: "改派请求",
-  },
-  remind: {
-    class: "notification-circle-remind",
-    label: "会议提醒",
-  },
-};
+import BasicContent from "./content/BasicContent";
+import ChangeContent from "./content/ChangeContent";
+import RegularContent from "./content/RegularContent";
+import ReassignmentContent from "./content/ReassignmentContent";
 
 export default {
   name: "NotificationItem",
-  components: { VantStep },
+  components: {
+    VantStep,
+    BasicContent,
+    ChangeContent,
+    RegularContent,
+    ReassignmentContent,
+  },
   props: ["notification"],
 
   setup(props) {
     const type = computed(() => props.notification.type);
+    const meetingName = computed(() => props.notification.meetingName);
+    const className = ref(`notification-circle-${type.value}`);
 
-    const isReassignment = computed(() => type.value === "reassign");
-    const className = ref(OPTIONS[type.value].class);
-    const label = ref(OPTIONS[type.value].label);
-
-    // const startDateString = computed(() => {
-    //   if (isReassignment.value) return null;
-    // });
+    const isReassignment = ref(type.value === "reassign");
+    const isChange = ref(type.value === "change");
 
     return {
       className,
       isReassignment,
-      label,
+      isChange,
+      type,
+      meetingName,
     };
   },
 };
 </script>
 
 <style scoped>
-.notification-content {
+.notification-content > p {
   margin: 2px 0;
   font: var(--font-heading-2);
 }

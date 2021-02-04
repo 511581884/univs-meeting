@@ -18,9 +18,8 @@ export default {
   name: "NotificationPreviews",
   setup() {
     const store = useStore();
-    console.log(store.getters.getTopThreeNotifications);
     const notifications = computed(
-      () => store.state.notification.notifications
+      () => store.getters.getTopThreeNotifications
     );
 
     return {
