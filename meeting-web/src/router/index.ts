@@ -1,6 +1,11 @@
-import { createRouter, createWebHistory } from "vue-router";
+import {
+  createRouter,
+  createWebHistory,
+  RouteRecordRaw,
+  RouterOptions,
+} from "vue-router";
 
-const routes = [
+const routes: RouteRecordRaw[] = [
   {
     path: "/week",
     name: "Week",
@@ -51,9 +56,11 @@ const routes = [
   },
 ];
 
-const router = createRouter({
+const routerOptions: RouterOptions = {
   history: createWebHistory(),
   routes,
-});
+};
+
+const router = createRouter(routerOptions);
 
 export default router;
