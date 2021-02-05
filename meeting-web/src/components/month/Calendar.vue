@@ -18,7 +18,7 @@ import { useStore } from "vuex";
 import dayjs from "dayjs";
 
 import { Calendar as VantCalendar } from "vant";
-import { isBeforeToday, areSameDate } from "@/helpers/dateTime.js";
+import { isBeforeToday, areSameDate } from "@/helpers/dateTime";
 
 export default {
   components: { VantCalendar },
