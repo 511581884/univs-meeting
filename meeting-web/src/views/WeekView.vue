@@ -19,7 +19,7 @@ export default {
   components: { WeekTop, WeekLeft, WeekRight, View },
   setup() {
     const store = useStore();
-    const schedule = computed(() => store.state.meetings);
+    const schedule = computed(() => store.state.meeting.meetings);
     return {
       schedule,
     };

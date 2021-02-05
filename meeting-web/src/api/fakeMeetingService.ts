@@ -1,4 +1,6 @@
-const meetings = [
+import { Meeting } from "@/types";
+
+const meetings: Meeting[] = [
   {
     id: 1,
     startDate: new Date(2021, 1, 2, 16),
@@ -12,6 +14,10 @@ const meetings = [
         name: "李四",
         phone: "5200000",
         isGuest: 1,
+        department: {
+          id: 2,
+          name: "学工部",
+        },
       },
       {
         id: 2,
@@ -38,10 +44,12 @@ const meetings = [
       {
         id: 1,
         name: "表彰大会名单XXX",
+        extension: "doc",
       },
       {
         id: 2,
         name: "会议重要红头文件",
+        extension: "ppt",
       },
     ],
   },
@@ -50,6 +58,7 @@ const meetings = [
     startDate: new Date(2021, 1, 2, 13),
     endDate: new Date(2021, 1, 2, 15),
     location: "西院会议室103",
+    host: "somebody",
     name: "辅导员第三次会议",
     attendees: [
       {
@@ -68,6 +77,7 @@ const meetings = [
     endDate: new Date(2021, 1, 3, 18),
     location: "西院会议室103",
     name: "辅导员第二次会议",
+    host: "somebody",
     attendees: [
       {
         id: 1,
@@ -85,6 +95,7 @@ const meetings = [
     endDate: new Date(2021, 2, 1, 10),
     location: "西院会议室103",
     name: "辅导员第二次会议",
+    host: "somebody",
     attendees: [
       {
         id: 1,
@@ -101,6 +112,7 @@ const meetings = [
     startDate: new Date(2021, 2, 5, 13),
     endDate: new Date(2021, 2, 5, 14),
     location: "西院会议室103",
+    host: "somebody",
     name: "辅导员第二次会议",
     attendees: [
       {
@@ -118,6 +130,7 @@ const meetings = [
     startDate: new Date(2021, 2, 6, 12),
     endDate: new Date(2021, 2, 6, 15),
     location: "西院会议室103",
+    host: "host",
     name: "辅导员第二次会议",
     attendees: [
       {
@@ -133,6 +146,6 @@ const meetings = [
 ];
 
 export const getMeetings = () =>
-  new Promise((resolve) => {
+  new Promise<Meeting[]>((resolve) => {
     resolve(meetings);
   });

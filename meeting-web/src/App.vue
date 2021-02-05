@@ -2,19 +2,19 @@
   <router-view />
 </template>
 
-<script>
-import { onMounted } from "vue";
+<script lang="ts">
+import { onMounted, defineComponent } from "vue";
 import { useStore } from "vuex";
 
-export default {
+export default defineComponent({
   name: "App",
   setup() {
     const store = useStore();
 
     onMounted(() => {
-      store.dispatch("fetchMeetings");
-      store.dispatch("fetchNotifications");
+      store.dispatch("meeting/fetchMeetings");
+      store.dispatch("notification/fetchNotifications");
     });
   },
-};
+});
 </script>

@@ -20,7 +20,7 @@ export default {
   setup() {
     const store = useStore();
     const notifications = computed(
-      () => store.getters.getTopThreeNotifications
+      () => store.getters["notification/getTopThreeNotifications"]
     );
 
     return {

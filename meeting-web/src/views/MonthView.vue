@@ -10,7 +10,6 @@
       <meeting-list :selectedDate="selectedDate" />
       <date-picker
         :show="pickerOpened"
-        :selectdDate="selectedDate"
         @confirm="handlePickerConfirm"
       ></date-picker>
     </div>

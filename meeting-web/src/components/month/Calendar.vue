@@ -18,7 +18,7 @@ import { useStore } from "vuex";
 import dayjs from "dayjs";
 
 import { Calendar as VantCalendar } from "vant";
-import { isBeforeToday, areSameDate } from "@/helpers/dateTime.js";
+import { isBeforeToday, areSameDate } from "@/helpers/dateTime";
 
 export default {
   components: { VantCalendar },
@@ -26,7 +26,9 @@ export default {
   props: ["selectedDate"],
   setup(props, context) {
     const store = useStore();
-    const datesHaveMeeting = computed(() => store.getters.datesHaveMeeting);
+    const datesHaveMeeting = computed(
+      () => store.getters["meeting/datesHaveMeeting"]
+    );
     const minDate = ref(
       dayjs()
         .subtract(3, "months")

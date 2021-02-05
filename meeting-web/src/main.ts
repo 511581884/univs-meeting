@@ -1,7 +1,7 @@
-import { createApp } from 'vue';
-import App from './App.vue';
+import { createApp } from "vue";
+import App from "./App.vue";
 
-import 'amfe-flexible';
+import "amfe-flexible";
 import "vant/lib/index.css";
 
 import store from "./store";

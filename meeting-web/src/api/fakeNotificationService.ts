@@ -1,4 +1,6 @@
-const notifications = [
+import { Notification, NotificationType } from "@/types/notification";
+
+const notifications: NotificationType[] = [
   {
     id: 1,
     type: "cancel",
@@ -62,7 +64,7 @@ const notifications = [
 ];
 
 export const getNotifications = () => {
-  return new Promise((resolve) => {
+  return new Promise<Notification[]>((resolve) => {
     resolve(notifications);
   });
 };

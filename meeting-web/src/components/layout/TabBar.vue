@@ -27,7 +27,7 @@ export default {
   setup() {
     const store = useStore();
     const unreadNotificationAmount = computed(
-      () => store.getters.getUnreadAmount
+      () => store.getters["notification/getUnreadAmount"]
     );
 
     return {
