@@ -1,4 +1,6 @@
-const colleagueOfSomebody = [
+import { Colleague, Id } from "@/types";
+
+const colleagueOfSomebody: Colleague[] = [
   {
     id: 1,
     name: "李四",
@@ -26,22 +28,21 @@ const colleagueOfSomebody = [
 ];
 
 // eslint-disable-next-line no-unused-vars
-export const getColleague = (userId) =>
-  new Promise((resolve) => {
+export const getColleague = (userId: Id) =>
+  new Promise<Colleague[]>((resolve) => {
     resolve(colleagueOfSomebody);
   });
 
-export const sendReassignmentRequest = (targetId, userId, meetingId) => {
+export const sendReassignmentRequest = (
+  targetId: Id,
+  userId: Id,
+  meetingId: Id
+) => {
   console.log(
     `Id of ${userId}} sent a reassignment request to id of ${targetId}. Asking him/her to attend the meeting with the id of ${meetingId}`
   );
 
-  return new Promise(
-    (resolve) => {
-      resolve("Request sent successfully!");
-    },
-    (reject) => {
-      reject("Request failed for some reason.");
-    }
+  return new Promise<string>((resolve) =>
+    resolve("Request sent successfully!")
   );
 };

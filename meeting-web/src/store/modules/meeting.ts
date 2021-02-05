@@ -1,15 +1,13 @@
-import { Module } from "vuex";
 import _ from "lodash";
 
-import { Meeting } from "@/types";
 import {
+  Meeting,
   MeetingState,
   MeetingMutations,
   MeetingActions,
   MeetingGetters,
   MeetingStore,
-  RootStore,
-} from "../types";
+} from "@/types";
 import { getMeetings } from "@/api/fakeMeetingService";
 
 const state: MeetingState = {

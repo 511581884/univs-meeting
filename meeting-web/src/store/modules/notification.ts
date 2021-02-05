@@ -7,7 +7,7 @@ import {
   NotificationActions,
   NotificationGetters,
   NotificationStore,
-} from "../types";
+} from "@/types";
 
 const state: NotificationState = {
   notifications: [],
