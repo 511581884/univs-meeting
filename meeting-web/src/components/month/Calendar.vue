@@ -26,7 +26,9 @@ export default {
   props: ["selectedDate"],
   setup(props, context) {
     const store = useStore();
-    const datesHaveMeeting = computed(() => store.getters.datesHaveMeeting);
+    const datesHaveMeeting = computed(
+      () => store.getters["meeting/datesHaveMeeting"]
+    );
     const minDate = ref(
       dayjs()
         .subtract(3, "months")

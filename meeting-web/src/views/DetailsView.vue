@@ -13,7 +13,7 @@ import MeetingInfo from "@/components/details/MeetingInfo.vue";
 import View from "@/components/common/View.vue";
 export default {
   name: "DetailsView",
-  props:["meetingId"],
+  props: ["meetingId"],
   components: {
     MeetingInfo,
     HandlerArea,
@@ -21,9 +21,9 @@ export default {
   },
   setup(props) {
     const store = useStore();
-    const details = computed(() => store.state.meetings[0]);
+    const details = computed(() => store.state.meeting.meetings[0]);
 
-    console.log(props.meetingId)
+    console.log(props.meetingId);
     return {
       details,
     };
@@ -31,5 +31,4 @@ export default {
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

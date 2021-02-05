@@ -12,8 +12,8 @@ export default {
     const store = useStore();
 
     onMounted(() => {
-      store.dispatch("fetchMeetings");
-      store.dispatch("fetchNotifications");
+      store.dispatch("meeting/fetchMeetings");
+      store.dispatch("notification/fetchNotifications");
     });
   },
 };

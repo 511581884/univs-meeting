@@ -29,7 +29,7 @@ import { useStore } from "vuex";
 import { computed } from "vue";
 export default {
   name: "AttendeesView",
-  props:["meetingId"],
+  props: ["meetingId"],
   components: {
     VanIcon,
     VanCell,
@@ -39,14 +39,14 @@ export default {
   setup(props) {
     const store = useStore();
     const attendees = computed(() => {
-      return store.state.meetings[0].attendees;
+      return store.state.meeting.meetings[0].attendees;
     });
 
     const call = (phone) => {
       window.location.href = `tel:${phone}`;
     };
 
-    console.log('meetingId:',props.meetingId)
+    console.log("meetingId:", props.meetingId);
     return {
       attendees,
       call,

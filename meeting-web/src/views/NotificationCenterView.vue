@@ -27,7 +27,9 @@ export default {
   components: { View, NotificationList },
   setup() {
     const store = useStore();
-    const categorized = computed(() => store.getters.getCategorizedByDate);
+    const categorized = computed(
+      () => store.getters["notification/getCategorizedByDate"]
+    );
     const unconfirmed = computed(() => categorized.value.unconfirmed);
     const regular = computed(() => {
       const copy = categorized.value;
@@ -40,7 +42,7 @@ export default {
     };
 
     onUnmounted(() => {
-      store.dispatch("makeAllRead");
+      store.dispatch("notification/makeAllRead");
     });
 
     return {

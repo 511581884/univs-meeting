@@ -41,7 +41,7 @@ export default {
     const router = useRouter();
 
     const selectedDate = computed(() => props.selectedDate);
-    const meetings = computed(() => store.getters.getMeetings);
+    const meetings = computed(() => store.getters["meeting/getMeetings"]);
     const isEmpty = computed(() => !filteredMeetings.value.length);
 
     const handleClick = (meetingId) => {
