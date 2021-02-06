@@ -3,7 +3,7 @@
     <div class="container">
       <profile />
       <notification-previews />
-      <linked-cell routeName="History" label="历史会议" />
+      <linked-cell routeName="HistoryMeeting" label="历史会议" />
     </div>
   </View>
 </template>

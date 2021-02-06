@@ -6,11 +6,12 @@
 </template>
 
 <script>
-import { useStore } from "vuex";
 import { computed } from "vue";
+
 import HandlerArea from "@/components/details/HandlerArea.vue";
 import MeetingInfo from "@/components/details/MeetingInfo.vue";
 import View from "@/components/common/View.vue";
+import { useStore } from "@/hooks/store";
 export default {
   name: "DetailsView",
   props: ["meetingId"],

@@ -9,8 +9,8 @@
 
 <script>
 import { computed } from "vue";
-import { useStore } from "vuex";
 
+import { useStore } from "@/hooks/store";
 import LinkedCell from "../../common/LinkedCell";
 import NotificationList from "./NotificationList";
 
@@ -39,7 +39,6 @@ export default {
 }
 
 .heading-container {
-  width: 100%;
   height: 5vh;
   /* background-color: red; */
   padding: 5px;

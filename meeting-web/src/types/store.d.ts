@@ -6,13 +6,19 @@ import {
   Getter,
   GetterTree,
   Module,
+  ModuleTree,
+  Store,
 } from "vuex";
 import { Meeting, Notification } from "@/types";
 
-export interface RootStore {
-  modules: {
-    meeting: Module<MeetingState, RootStore>;
-  };
+export interface RootStore extends Store<RootStore> {
+  [x: string]: any;
+  modules: RootModules;
+}
+
+export interface RootModules extends ModuleTree<RootStore> {
+  meeting: Module<MeetingState, RootStore>;
+  notification: Module<NotificationState, RootStore>;
 }
 
 export interface MeetingState {

@@ -24,9 +24,10 @@ import {
   Cell as VanCell,
   CellGroup as VanCellGroup,
 } from "vant";
-import View from "@/components/common/View.vue";
-import { useStore } from "vuex";
 import { computed } from "vue";
+
+import View from "@/components/common/View.vue";
+import { useStore } from "@/hooks/store";
 export default {
   name: "AttendeesView",
   props: ["meetingId"],

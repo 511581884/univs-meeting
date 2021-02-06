@@ -51,6 +51,11 @@ const routes: RouteRecordRaw[] = [
     component: () => import("../views/NotificationCenterView.vue"),
   },
   {
+    path: "/history",
+    name: "HistoryMeeting",
+    component: () => import("../views/HistoryMeetingView.vue"),
+  },
+  {
     path: "/",
     redirect: "/week",
   },
