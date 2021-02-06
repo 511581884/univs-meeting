@@ -8,5 +8,5 @@ export const useStore = () => baseUseStore(key);
 
 export const useMeetings = () => {
   const store = useStore();
-  return computed<Meeting[]>(() => store.state.meeting.meetings);
+  return computed<Meeting[]>(() => store.getters["meeting/getMeetings"]);
 };

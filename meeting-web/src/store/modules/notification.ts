@@ -2,11 +2,13 @@ import _ from "lodash";
 
 import { getNotifications } from "../../api/fakeNotificationService";
 import {
+  NotificationType,
   NotificationState,
   NotificationMutations,
   NotificationActions,
   NotificationGetters,
   NotificationStore,
+  ReassignNotification,
 } from "@/types";
 
 const state: NotificationState = {
@@ -50,9 +52,10 @@ const getters: NotificationGetters = {
     return state.notifications.filter((n) => !n.hasRead).length;
   },
   getCategorizedByDate: (state) => {
-    return _.groupBy(state.notifications, (n) => {
-      if (typeof n.hasConfirm === "boolean" && !n.hasConfirm)
+    return _.groupBy(state.notifications, (n: NotificationType) => {
+      if (n.type === "reassign" && !n.hasConfirm) {
         return "unconfirmed";
+      }
       return n.createDate.toDateString();
     });
   },

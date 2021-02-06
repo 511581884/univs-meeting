@@ -2,13 +2,7 @@
   <View navBar navBarTitle="历史会议">
     <div v-for="key in Object.keys(meetingGroups)" :key="key">
       <list-header>{{ getDate(key) }}</list-header>
-      <div v-for="(meeting, index) in meetingGroups[key]" :key="meeting.id">
-        <meeting-item
-          :meeting="meeting"
-          :separator="index !== meetingGroups[key].length - 1"
-          @meetingClick="handleMeetingClick"
-        />
-      </div>
+      <meeting-list :meetings="meetingGroups[key]" />
     </div>
   </View>
 </template>
@@ -19,12 +13,12 @@ import { useRouter } from "vue-router";
 
 import View from "@/components/common/View.vue";
 import ListHeader from "@/components/common/ListHeader.vue";
-import MeetingItem from "@/components/month/MeetingItem.vue";
 import { useStore } from "@/hooks/store";
 import { formatDate } from "@/helpers/dateTime";
+import MeetingList from "@/components/meeting/MeetingList.vue";
 
 export default {
-  components: { View, ListHeader, MeetingItem },
+  components: { View, ListHeader, MeetingList },
   name: "HistoryMeetingView",
   setup() {
     const store = useStore();
