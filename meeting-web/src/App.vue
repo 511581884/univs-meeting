@@ -4,7 +4,7 @@
 
 <script lang="ts">
 import { onMounted, defineComponent } from "vue";
-import { useStore } from "vuex";
+import { useStore } from "@/hooks/store";
 
 export default defineComponent({
   name: "App",

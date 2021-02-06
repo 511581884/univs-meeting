@@ -37,6 +37,7 @@ export default {
 <style scoped>
 .meeting-time {
   font: var(--font-heading-3);
-  margin: 0px 15px;
+  margin: 0px;
+  margin-right: 15px;
 }
 </style>

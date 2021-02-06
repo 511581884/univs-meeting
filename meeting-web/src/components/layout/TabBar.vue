@@ -16,9 +16,9 @@
 
 <script>
 import { computed } from "vue";
-import { useStore } from "vuex";
 
 import { Tabbar as VantTabbar, TabbarItem as VantTabbarItem } from "vant";
+import { useStore } from "@/hooks/store";
 import Badge from "../common/Badge.vue";
 
 export default {

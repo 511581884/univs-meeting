@@ -37,9 +37,13 @@ const getters: MeetingGetters = {
       month: startDate.getMonth(),
       date: startDate.getDate(),
     }));
-
     const unique: typeof dates = _.uniqWith(dates, _.isEqual);
     return unique.map(({ year, month, date }) => new Date(year, month, date));
+  },
+  getCategorizedByDate: (state) => {
+    return _.groupBy(state.meetings, (n: Meeting) =>
+      n.startDate.toDateString()
+    );
   },
 };
 

@@ -18,7 +18,7 @@ export default {
 .van-empty__image {
   width: 160px;
   height: 160px;
-  margin-top: 40px;
+  margin-top: 50px;
 }
 
 .van-empty__description {

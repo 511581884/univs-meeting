@@ -14,10 +14,10 @@
 
 <script>
 import { computed, onMounted, ref, watch } from "vue";
-import { useStore } from "vuex";
 import dayjs from "dayjs";
 
 import { Calendar as VantCalendar } from "vant";
+import { useStore } from "@/hooks/store";
 import { isBeforeToday, areSameDate } from "@/helpers/dateTime";
 
 export default {

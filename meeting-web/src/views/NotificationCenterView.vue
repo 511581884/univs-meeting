@@ -1,14 +1,14 @@
 <template>
   <View navBar navBarTitle="通知中心">
     <div class="history-item">
-      <h3 class="history-header">待确认</h3>
+      <list-header>待确认</list-header>
       <notification-list
         :notifications="unconfirmed"
         :class="'history-unconfirmed'"
       />
     </div>
     <div class="history-item" v-for="key in Object.keys(regular)" :key="key">
-      <h3 class="history-header">{{ getDate(key) }}</h3>
+      <list-header>{{ getDate(key) }}</list-header>
       <notification-list :notifications="regular[key]" />
     </div>
   </View>
@@ -16,15 +16,16 @@
 
 <script>
 import { computed, onUnmounted } from "vue";
-import { useStore } from "vuex";
 
-import View from "../components/common/View";
-import NotificationList from "../components/my-meeting/notification/NotificationList";
+import { useStore } from "@/hooks/store";
+import View from "../components/common/View.vue";
+import NotificationList from "../components/my-meeting/notification/NotificationList.vue";
+import ListHeader from "@/components/common/ListHeader.vue";
 import { formatDate } from "../helpers/dateTime";
 
 export default {
   name: "NotificationCenterView",
-  components: { View, NotificationList },
+  components: { View, NotificationList, ListHeader },
   setup() {
     const store = useStore();
     const categorized = computed(

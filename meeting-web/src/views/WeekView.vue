@@ -8,8 +8,8 @@
 
 <script>
 import { computed } from "vue";
-import { useStore } from "vuex";
 
+import { useStore } from "@/hooks/store";
 import WeekLeft from "@/components/week/WeekLeft.vue";
 import WeekTop from "@/components/week/WeekTop.vue";
 import WeekRight from "@/components/week/WeekRight.vue";
