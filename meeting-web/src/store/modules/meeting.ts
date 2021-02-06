@@ -9,6 +9,7 @@ import {
   MeetingStore,
 } from "@/types";
 import { getMeetings } from "@/api/fakeMeetingService";
+import { areSameDate } from "@/helpers/dateTime";
 
 const state: MeetingState = {
   meetings: [],
@@ -29,7 +30,13 @@ const actions: MeetingActions = {
 
 const getters: MeetingGetters = {
   getMeetings: (state) => {
-    return _.sortBy(state.meetings, (meeting) => meeting.startDate);
+    return _.orderBy(state.meetings, (meeting) => meeting.startDate, "desc");
+  },
+  getMeetingsByDate: (state, date: Date) => {
+    const meetings = state.meetings.filter((meeting) =>
+      areSameDate(meeting.startDate, date)
+    );
+    return _.orderBy(meetings, (meeting) => meeting.startDate, "desc");
   },
   datesHaveMeeting(state) {
     const dates = state.meetings.map(({ startDate }) => ({

@@ -10,6 +10,7 @@ import {
   Store,
 } from "vuex";
 import { Meeting, Notification } from "@/types";
+import { NotificationType } from "./notification";
 
 export interface RootStore extends Store<RootStore> {
   [x: string]: any;
@@ -33,13 +34,14 @@ export interface MeetingActions extends ActionTree<MeetingState, RootStore> {
 }
 export interface MeetingGetters extends GetterTree<MeetingState, RootStore> {
   getMeetings: Getter<MeetingState, RootStore>;
+  getMeetingsByDate: Getter<MeetingState, RootStore>;
   datesHaveMeeting: Getter<MeetingState, RootStore>;
 }
 
 export interface MeetingStore extends Module<MeetingState, RootStore> {}
 
 export interface NotificationState {
-  notifications: Notification[];
+  notifications: NotificationType[];
   length: number;
 }
 export interface NotificationMutations extends MutationTree<NotificationState> {
