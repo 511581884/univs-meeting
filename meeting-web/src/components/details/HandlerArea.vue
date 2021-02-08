@@ -10,6 +10,7 @@
             :title="item.name"
             is-link
             icon="orders-o"
+            @click="goTo('File')"
           />
         </van-collapse-item>
       </van-collapse>
