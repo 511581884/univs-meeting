@@ -19,7 +19,8 @@ export default {
   components: { WeekTop, WeekLeft, WeekRight, View },
   setup() {
     const store = useStore();
-    const schedule = computed(() => store.state.meeting.meetings);
+    const schedule = computed(() => store.getters["meeting/getMeetingsOfThisWeek"]);
+    console.log(schedule)
     return {
       schedule,
     };

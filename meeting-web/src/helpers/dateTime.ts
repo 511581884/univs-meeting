@@ -1,4 +1,4 @@
-import dayjs from "dayjs";
+import dayjs, { Dayjs } from "dayjs";
 
 const today = dayjs();
 
@@ -37,3 +37,12 @@ export const formatDate = (date: Date, showTime = true): string => {
   if (isTomorrow(date)) return `明天  ${timeString}`;
   return `${date.getMonth() + 1}月${date.getDate()}日  ${timeString}`;
 };
+
+
+export const isInThisWeek = (date: Date): boolean => {
+  const _date = dayjs(date)
+  const dayOfWeek = today.get("day") || 7 
+  const s = today.add( 1 - dayOfWeek,'day').set('hour',0).set('minute',0).set('second',0)
+  const e = today.add( 7 - dayOfWeek,'day').set('hour',23).set('minute',59).set('second',59)
+  return _date >=s && _date <= e
+}

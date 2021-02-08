@@ -11,6 +11,8 @@ import {
 import { getMeetings } from "@/api/fakeMeetingService";
 import { areSameDate } from "@/helpers/dateTime";
 
+import { isInThisWeek } from "@/helpers/dateTime"
+
 const state: MeetingState = {
   meetings: [],
 };
@@ -52,6 +54,12 @@ const getters: MeetingGetters = {
       n.startDate.toDateString()
     );
   },
+  getMeetingsOfThisWeek: (state) => {
+    return state.meetings.filter(item => {
+      return isInThisWeek(item.startDate)
+    })
+
+  }
 };
 
 const meetingModule: MeetingStore = {

@@ -56,6 +56,11 @@ const routes: RouteRecordRaw[] = [
     component: () => import("../views/HistoryMeetingView.vue"),
   },
   {
+    path: "/file",
+    name: "File",
+    component: () => import("../views/FileView.vue"),
+  },
+  {
     path: "/",
     redirect: "/week",
   },
