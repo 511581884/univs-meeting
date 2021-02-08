@@ -4,6 +4,7 @@
       <van-cell title="参会人员" is-link @click="goTo('Attendees')"/>
       <van-collapse v-model="openUnit">
         <van-collapse-item title="会议文件" name="files">
+          <div v-if='details.files'>
           <van-cell
             v-for="(item, index) in details.files"
             :key="index"
@@ -12,6 +13,10 @@
             icon="orders-o"
             @click="goTo('File')"
           />
+          </div>
+          <div v-else class='no-files'>
+            <span>暂无相关会议文件</span>
+          </div>
         </van-collapse-item>
       </van-collapse>
       <van-cell title="会后反馈" is-link @click="goTo('Feedback')"/>
@@ -105,6 +110,10 @@ export default {
 <style lang="less" scoped>
 .body {
   font: var(--font-text-1);
+  .no-files{
+    display: flex;
+    justify-content: center;
+  }
   .btns {
     margin-top: 30px;
     button {
