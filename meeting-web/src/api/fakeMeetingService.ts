@@ -3,8 +3,8 @@ import { Meeting } from "@/types";
 const meetings: Meeting[] = [
   {
     id: 1,
-    startDate: new Date(2021, 1, 2, 16),
-    endDate: new Date(2021, 1, 2, 18),
+    startDate: new Date(2021, 1, 8, 16),
+    endDate: new Date(2021, 1, 8, 18),
     location: "西院会议室101",
     name: "辅导员第一次会议",
     host: "王世杰",
@@ -55,8 +55,8 @@ const meetings: Meeting[] = [
   },
   {
     id: 3,
-    startDate: new Date(2021, 1, 2, 13),
-    endDate: new Date(2021, 1, 2, 15),
+    startDate: new Date(2021, 1, 9, 13),
+    endDate: new Date(2021, 1, 9, 15),
     location: "西院会议室103",
     host: "somebody",
     name: "辅导员第三次会议",
@@ -73,8 +73,8 @@ const meetings: Meeting[] = [
   },
   {
     id: 2,
-    startDate: new Date(2021, 1, 3, 16),
-    endDate: new Date(2021, 1, 3, 18),
+    startDate: new Date(2021, 1, 9, 16),
+    endDate: new Date(2021, 1, 9, 18),
     location: "西院会议室103",
     name: "辅导员第二次会议",
     host: "somebody",
@@ -91,8 +91,8 @@ const meetings: Meeting[] = [
   },
   {
     id: 4,
-    startDate: new Date(2021, 1, 2, 8),
-    endDate: new Date(2021, 1, 1, 10),
+    startDate: new Date(2021, 1, 10, 8),
+    endDate: new Date(2021, 1, 10, 10),
     location: "西院会议室103",
     name: "辅导员第二次会议",
     host: "somebody",
@@ -109,8 +109,8 @@ const meetings: Meeting[] = [
   },
   {
     id: 5,
-    startDate: new Date(2021, 1, 5, 13),
-    endDate: new Date(2021, 1, 5, 14),
+    startDate: new Date(2021, 1, 11, 13),
+    endDate: new Date(2021, 1, 11, 14),
     location: "西院会议室103",
     host: "somebody",
     name: "辅导员第二次会议",
@@ -127,8 +127,8 @@ const meetings: Meeting[] = [
   },
   {
     id: 6,
-    startDate: new Date(2021, 1, 6, 12),
-    endDate: new Date(2021, 1, 6, 15),
+    startDate: new Date(2021, 1, 12, 12),
+    endDate: new Date(2021, 1, 12, 15),
     location: "西院会议室103",
     host: "host",
     name: "辅导员第二次会议",
@@ -145,8 +145,8 @@ const meetings: Meeting[] = [
   },
   {
     id: 7,
-    startDate: new Date(2021, 1, 7, 8),
-    endDate: new Date(2021, 1, 7, 9),
+    startDate: new Date(2021, 1, 13, 8),
+    endDate: new Date(2021, 1, 13, 9),
     location: "西院会议室103",
     host: "host",
     name: "辅导员第二次会议",
@@ -163,8 +163,8 @@ const meetings: Meeting[] = [
   },
   {
     id: 8,
-    startDate: new Date(2021, 1, 6, 8),
-    endDate: new Date(2021, 1, 6, 9),
+    startDate: new Date(2021, 1, 15, 8),
+    endDate: new Date(2021, 1, 15, 9),
     location: "西院会议室103",
     host: "host",
     name: "辅导员第二次会议",
@@ -181,8 +181,8 @@ const meetings: Meeting[] = [
   },
   {
     id: 9,
-    startDate: new Date(2021, 1, 10, 14),
-    endDate: new Date(2021, 1, 10, 16),
+    startDate: new Date(2021, 1, 14, 14),
+    endDate: new Date(2021, 1, 14, 16),
     location: "西院会议室103",
     host: "host",
     name: "辅导员第二次会议",

@@ -9,9 +9,7 @@ import {
   MeetingStore,
 } from "@/types";
 import { getMeetings } from "@/api/fakeMeetingService";
-import { areSameDate } from "@/helpers/dateTime";
-
-import { isInThisWeek } from "@/helpers/dateTime"
+import { areSameDate, isInThisWeek } from "@/helpers/dateTime";
 
 const state: MeetingState = {
   meetings: [],
@@ -58,7 +56,11 @@ const getters: MeetingGetters = {
     return state.meetings.filter(item => {
       return isInThisWeek(item.startDate)
     })
-
+  },
+  getMeetingByMeetingId: (state) => (id) => {
+    return state.meetings.find(item =>{
+      return item.id === Number(id)
+    })
   }
 };
 

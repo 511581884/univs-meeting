@@ -22,9 +22,7 @@ export default {
   },
   setup(props) {
     const store = useStore();
-    const details = computed(() => store.state.meeting.meetings[0]);
-
-    console.log(props.meetingId);
+    const details = computed(() => store.getters["meeting/getMeetingByMeetingId"](props.meetingId));
     return {
       details,
     };

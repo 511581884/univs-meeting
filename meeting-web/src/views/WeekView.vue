@@ -20,7 +20,6 @@ export default {
   setup() {
     const store = useStore();
     const schedule = computed(() => store.getters["meeting/getMeetingsOfThisWeek"]);
-    console.log(schedule)
     return {
       schedule,
     };
