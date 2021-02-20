@@ -12,10 +12,8 @@ export default defineComponent({
   name: "App",
   setup() {
     const store = useStore();
-
     onMounted(async () => {
-      fetchToken();
-
+      await fetchToken();
       store.dispatch("meeting/fetchMeetings");
       store.dispatch("notification/fetchNotifications");
     });
