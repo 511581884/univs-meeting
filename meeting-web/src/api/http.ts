@@ -1,23 +1,23 @@
 import axios, { AxiosRequestConfig } from "axios";
 import { getToken } from "./auth";
 
-const BASE_URL = process.env.VUE_APP_BACKEND_URL;
-
-export interface HttpRequestConfig<P> {
+export interface HttpRequestConfig {
   requireAuth: boolean;
   params?: {
     [index: string]: string;
   };
-  payload?: P;
+  payload?: {
+    [index: string]: any;
+  };
 }
+
+const BASE_URL = process.env.VUE_APP_BACKEND_URL;
 
 const http = axios.create({
   baseURL: BASE_URL,
 });
 
-export function get<P>(endPoint: string, config?: HttpRequestConfig<P>) {
-  // extract the individual parameters
-
+export function get<R>(endPoint: string, config?: HttpRequestConfig) {
   const options: AxiosRequestConfig = {
     headers: {},
     params: config && config.params,
@@ -27,15 +27,14 @@ export function get<P>(endPoint: string, config?: HttpRequestConfig<P>) {
     options.headers["x-auth-token"] = getToken();
   }
 
-  return http.get<P>(endPoint, options);
+  return http.get<R>(endPoint, options);
 }
 
-export function post<P>(endPoint: string, config?: HttpRequestConfig<P>) {
+export function post<R>(endPoint: string, config?: HttpRequestConfig) {
   const payload = config && config.payload;
 
   const options: AxiosRequestConfig = {
     headers: {},
-
     params: config && config.params,
   };
 
@@ -43,5 +42,5 @@ export function post<P>(endPoint: string, config?: HttpRequestConfig<P>) {
     options.headers["x-auth-token"] = getToken();
   }
 
-  return http.post<P>(endPoint, payload, options);
+  return http.post<R>(endPoint, payload, options);
 }
