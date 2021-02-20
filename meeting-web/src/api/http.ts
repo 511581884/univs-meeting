@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig } from "axios";
 import { getToken } from "./auth";
 
-const BASE_URL = "http://localhost:3002";
+const BASE_URL = process.env.VUE_APP_BACKEND_URL;
 
 export interface HttpRequestConfig<P> {
   requireAuth: boolean;

@@ -22,6 +22,7 @@ export default {
     },
     navBarTitle: {
       type: String,
+      default: "",
     },
   },
 };
