@@ -16,13 +16,14 @@ const http = axios.create({
 });
 
 export function get<P>(endPoint: string, config?: HttpRequestConfig<P>) {
-  const { params, requireAuth } = config;
+  // extract the individual parameters
 
   const options: AxiosRequestConfig = {
-    params,
+    headers: {},
+    params: config && config.params,
   };
 
-  if (requireAuth) {
+  if (config && config.requireAuth) {
     options.headers["x-auth-token"] = getToken();
   }
 
@@ -30,13 +31,15 @@ export function get<P>(endPoint: string, config?: HttpRequestConfig<P>) {
 }
 
 export function post<P>(endPoint: string, config?: HttpRequestConfig<P>) {
-  const { params, payload, requireAuth } = config;
+  const payload = config && config.payload;
 
   const options: AxiosRequestConfig = {
-    params,
+    headers: {},
+
+    params: config && config.params,
   };
 
-  if (requireAuth) {
+  if (config && config.requireAuth) {
     options.headers["x-auth-token"] = getToken();
   }
 

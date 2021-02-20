@@ -14,8 +14,7 @@ export default defineComponent({
     const store = useStore();
 
     onMounted(async () => {
-      const token = await fetchToken();
-      localStorage.setItem("x-auth-token", token);
+      fetchToken();
 
       store.dispatch("meeting/fetchMeetings");
       store.dispatch("notification/fetchNotifications");
