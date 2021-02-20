@@ -1,6 +1,6 @@
 import _ from "lodash";
 
-import { getNotifications } from "../../api/fakeNotificationService";
+import { getNotifications } from "../../api/notification";
 import {
   NotificationType,
   NotificationState,
@@ -8,7 +8,6 @@ import {
   NotificationActions,
   NotificationGetters,
   NotificationStore,
-  ReassignNotification,
 } from "@/types";
 
 const state: NotificationState = {
@@ -31,11 +30,23 @@ const mutations: NotificationMutations = {
 const actions: NotificationActions = {
   fetchNotifications: async ({ commit }) => {
     const notifications = await getNotifications();
+
+    //Dates are represented as 'strings' in the data coming from the backend.
+    //Convert all the properties related to 'Date' into Date object.
+    notifications.forEach((notification) => {
+      Object.keys(notification)
+        .filter((key) => key.includes("Date"))
+        .forEach((key) => {
+          notification[key] = new Date(notification[key]);
+        });
+    });
+
     const sorted = _.orderBy(
       notifications,
       (notification) => notification.createDate,
       "desc"
     );
+
     commit("updateNotifications", sorted);
   },
 

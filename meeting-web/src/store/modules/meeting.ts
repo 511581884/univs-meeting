@@ -8,7 +8,7 @@ import {
   MeetingGetters,
   MeetingStore,
 } from "@/types";
-import { getMeetings } from "@/api/fakeMeetingService";
+import { getMeetings } from "@/api/meeting";
 import { areSameDate, isInThisWeek } from "@/helpers/dateTime";
 
 const state: MeetingState = {

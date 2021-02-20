@@ -10,7 +10,7 @@
 <script>
 import { onBeforeMount, ref } from "vue";
 
-import { getColleague } from "../../api/fakeMemberService";
+import { getColleague } from "../../api/member";
 import Separator from "../common/Separator";
 import ColleagueItem from "./ColleagueItem";
 
