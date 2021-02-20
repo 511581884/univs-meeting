@@ -16,6 +16,8 @@ export default defineComponent({
       await fetchToken();
       store.dispatch("meeting/fetchMeetings");
       store.dispatch("notification/fetchNotifications");
+      store.dispatch("user/fetchUser");
+      console.log(store.getters["user/getUser"])
     });
   },
 });

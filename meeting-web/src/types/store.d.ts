@@ -9,7 +9,7 @@ import {
   ModuleTree,
   Store,
 } from "vuex";
-import { Meeting, Notification } from "@/types";
+import { Meeting, Notification, User } from "@/types";
 import { NotificationType } from "./notification";
 
 export interface RootStore extends Store<RootStore> {
@@ -44,6 +44,7 @@ export interface NotificationState {
   notifications: NotificationType[];
   length: number;
 }
+
 export interface NotificationMutations extends MutationTree<NotificationState> {
   updateNotifications: Mutation<NotificationState>;
   makeAllRead: Mutation<NotificationState>;
@@ -63,3 +64,20 @@ export interface NotificationGetters
 
 export interface NotificationStore
   extends Module<NotificationState, RootStore> {}
+
+
+export interface UserState {
+  user: User;
+}
+export interface UserMutations extends MutationTree<UserState> {
+  updateUser: Mutation<UserState>;
+}
+
+export interface UserActions extends ActionTree<UserState, RootStore> {
+  fetchUser: Action<UserState, RootStore>;
+}
+export interface UserGetters extends GetterTree<UserState, RootStore> {
+  getUser: Getter<UserState, RootStore>;
+}
+
+export interface UserStore extends Module<UserState, RootStore> {}
