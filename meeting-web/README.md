@@ -1,24 +1,32 @@
-# meeting-web
+TODOs:
 
-## Project setup
-```
-npm install
-```
+1. Project setup / Configurations
+   [x] Vant
+   [x] Postcss-plugin
+   [x] Vuex
+   [x] Vue-router
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+2. Style Variables
+   [ ] Colors
+   [ ] Font-families
+   [ ] Font-size
+   [ ] Box-shadow
 
-### Compiles and minifies for production
-```
-npm run build
-```
+3. Folders
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- components/
+  - layout/
+    - NavBar
+    - TopBar
+  -
+- views/
+  - WeekView **J**
+  - MonthView **T**
+  - MyView **T**
+  - NoticeView **T**
+  - DetailsView **J**
+  - AttendeesView **J**
+  - FilesView **J**
+  - ReassignmentView **T**
+  - FeedbackView **J**
+  - HistoryView **T**

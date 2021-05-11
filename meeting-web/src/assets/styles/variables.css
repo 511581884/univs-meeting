@@ -1,0 +1,46 @@
+:root {
+  /* colors */
+  --colors-primary: #172a54;
+  --colors-secondary: #fac640;
+  --colors-green: #59d983;
+  --colors-aqua: #59b9d9;
+  --colors-blue: #5977d9;
+  --colors-red: #d95959;
+  --colors-orange: #d9a159;
+  --colors-lightcyan: #dbe4eb;
+  --colors-purple: #d759d9;
+
+  /* white-grey-black colors. Mainly used for background color or font color. */
+  --colors-light: #d9d9d9;
+  --colors-medium: #999;
+  --colors-black: #222;
+  --colors-dark: #444;
+  --colors-white: #fcfcfc;
+
+  /* background colors for views of week  */
+  --colors-week-background-today: var(--colors-lightcyan);
+  --colors-week-background-default: var(--colors-white);
+  --colors-week-background-past: var(--colors-medium);
+
+  /* colors for views of details */
+  --colors-details-btn-green: var(--colors-green);
+  --colors-details-btn-red: var(--colors-red);
+  --colors-details-btn-orange: var(--colors-orange);
+  --colors-details-btn-blue: var(--colors-blue);
+
+  /* font-families; */
+  --font-families-impact: "You She", impact;
+  --font-families-regular: "Fang Zheng", sans-serif;
+
+  /* font */
+  /* font-size color */
+  --font-heading-1: 24px var(--font-families-regular);
+  --font-heading-2: 16px var(--font-families-regular);
+  --font-heading-3: 14px var(--font-families-regular);
+  --font-heading-4: bold 12px var(--font-families-regular);
+  --font-text-1: 12px var(--font-families-regular);
+  --font-text-2: 11px var(--font-families-regular);
+
+  /* shadow separator */
+  --shadow-separator: 2px 2px 5px 1px var(--colors-medium);
+}

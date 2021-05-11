@@ -1,22 +1,24 @@
 <template>
-  <Button type="primary">Click Me!</Button>
+  <router-view />
 </template>
 
-<script>
-import Button from "vant/lib/button";
-export default {
-  name: "App",
-  components: { Button },
-};
-</script>
+<script lang="ts">
+import { onMounted, defineComponent } from "vue";
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+import { useStore } from "@/hooks/store";
+import { fetchToken } from "@/api/auth";
+
+export default defineComponent({
+  name: "App",
+  setup() {
+    const store = useStore();
+    onMounted(async () => {
+      await fetchToken();
+      store.dispatch("meeting/fetchMeetings");
+      store.dispatch("notification/fetchNotifications");
+      store.dispatch("user/fetchUser");
+      console.log(store.getters["user/getUser"])
+    });
+  },
+});
+</script>

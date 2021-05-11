@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "Fang Zheng";
+  src: url("FangZhengHeiTiJianTi-1.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "You She";
+  src: url("YouSheRegularBlack.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
