@@ -10,3 +10,7 @@ export const getNotifications = async () => {
 
   return notifications;
 };
+
+export const sendReassignAcceptance = async () => {};
+
+export const sendReassignRejection = async () => {};

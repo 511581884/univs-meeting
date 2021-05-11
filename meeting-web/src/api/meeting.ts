@@ -1,4 +1,4 @@
-import { Meeting } from "@/types";
+import { Meeting, Id } from "@/types";
 import { get } from "./http";
 
 const END_POINT = "/api/meetings";
@@ -10,3 +10,11 @@ export const getMeetings = async () => {
 
   return meetings;
 };
+
+export const getMeetingDetail = async (meetingId: Id) => {};
+
+export const sendReassignRequest = async () => {};
+
+export const sendAcceptance = async () => {};
+
+export const sendAbsentRequest = async () => {};
